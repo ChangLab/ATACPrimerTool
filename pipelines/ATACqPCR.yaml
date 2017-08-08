@@ -1,0 +1,29 @@
+# configure file for ATACqPCR pipeline based on pypiper
+#system configure
+tools:
+
+# basic tools 
+  Rscript: /usr/local/bin/Rscript
+  # absolute paths to required tools
+
+# public tools 
+  samtools:  /usr/local/bin/samtools
+  bedtools: /storage/kdriest/bedtools2/bin/bedtools #version 2
+  fetchChromSizes: /seq/ucsc/fetchChromSizes
+# private tools
+  make_window_bed: /storage/kdriest/ATACqPCR/scripts/make_window_bed.R
+  find_qPCR_regions: /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R
+  
+
+#User configure 
+resources:
+  genomes: /seq/genomes/
+# reference information set up , using  mm9 for example 
+#  changed using referen prefix 
+#  hard code for hg19 now      
+
+parameters:
+  # parameters passed to bioinformatic tools, subclassed by tool
+  samtools:
+         q: 10
+

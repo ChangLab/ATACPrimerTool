@@ -1,0 +1,20 @@
+ATACqPCR.py:
+  name: ATACqPCR
+  looper_args: False
+  arguments:
+    "--sample-name": sample_name
+    "--genome": genome
+    "--input": bam_dir
+    "--input2": peak_file
+    "--input3": corr_cutoff
+    "--input4": cov_cutoff
+    "--input5": return_plot
+    "--input6": window_size
+    "--input7": percent_overlap 
+  resources:
+    default:
+      file_size: "0"
+      cores: "8"
+      mem: "32000"
+      time: "2-00:00:00"
+      partition: "longq"
