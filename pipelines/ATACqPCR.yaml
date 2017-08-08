@@ -17,7 +17,7 @@ tools:
 
 #User configure 
 resources:
-  genomes: /seq/genomes/
+  genomes: /storage/kdriest/ATACqPCR/genomes/
 # reference information set up , using  mm9 for example 
 #  changed using referen prefix 
 #  hard code for hg19 now      

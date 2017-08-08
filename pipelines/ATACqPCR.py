@@ -41,8 +41,9 @@ param = pm.config.parameters
 res = pm.config.resources
 
 # Set up reference resource according to genome prefix.
-gfolder = os.path.join(res.genomes, args.genome_assembly)
-res.chrom_sizes = os.path.join(gfolder, args.genome_assembly + ".chromSizes") #what if this does not exist?
+res.chrom_sizes = os.path.join(res.genomes, args.genome_assembly + ".chromSizes")
+cmd = tools.fetchChromSizes + " " + args.genome_assembly + " > " + res.chrom_sizes
+pm.run(cmd, res.chrom_sizes)
 
 output = outfolder
 param.outfolder = outfolder
