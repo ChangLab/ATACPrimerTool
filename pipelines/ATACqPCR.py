@@ -20,18 +20,20 @@ parser = ArgumentParser(description='Pipeline')
 parser = pypiper.add_pypiper_args(parser, all_args = True)
 #parser = pypiper.add_pypiper_args(parser, groups = ['all'])  # future version
 
+#are only two inputs expected?
+
 #Add any pipeline-specific arguments
-parser.add_argument("-I3", "--corr_cutoff", default="0.8", dest="input3",type=float, help="cutoff for peak correlation")
-parser.add_argument("-I4", "--cov_cutoff", default="3", dest="input4",type=int, help="cutoff for spanning read coverage")
-parser.add_argument("-I5", "--return_plot", default="FALSE", dest="input5",type=str, help="return plot of window correlations")
-parser.add_argument("-I6", "--window_size", default="100", dest="input6",type=int, help="window size")
-parser.add_argument("-I7", "--percent_overlap", default="0.9", dest="input7",type=float, help="percent of fragment overlap")
+parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",type=float, help="cutoff for peak correlation")
+parser.add_argument("-cov", "--cov_cutoff", default="3", dest="cov_cutoff",type=int, help="cutoff for spanning read coverage")
+parser.add_argument("-plot", "--return_plot", default="FALSE", dest="return_plot",type=str, help="return plot of window correlations")
+parser.add_argument("-window", "--window_size", default="100", dest="window_size",type=int, help="window size")
+parser.add_argument("-overlap", "--percent_overlap", default="0.9", dest="percent_overlap",type=float, help="percent of fragment overlap")
 args = parser.parse_args()
 
 # Initialize
 outfolder = os.path.abspath(os.path.join(args.output_parent, args.sample_name))
 pm = pypiper.PipelineManager(name = "ATACqPCR", outfolder = outfolder, args = args)
-ngstk = pypiper.NGSTk(pm=pm)
+ngstk = pypiper.NGSTk(pm=pm) #need??
 
 #cores??
 
@@ -57,7 +59,7 @@ pm.report_result("Genome", args.genome_assembly)
 # ATACqPCR pipeline
 
 qPCR_windows = os.path.join(param.outfolder, "qPCR_windows.bed")
-cmd = tools.Rscript + " " + tools.make_window_bed + " " + str(args.input2[0]) + " " + str(args.input6) + " " + str(qPCR_windows)
+cmd = tools.Rscript + " " + tools.make_window_bed + " " + str(args.input2[0]) + " " + str(args.window_size) + " " + str(qPCR_windows)
 pm.run(cmd, qPCR_windows)
 
 pm.clean_add(qPCR_windows)
@@ -76,9 +78,9 @@ filtered_bams = os.path.join(param.outfolder, "filteredbams/")
 if not os.path.exists(filtered_bams):
     os.mkdir(filtered_bams)
 count = 0
-for bamfile in os.listdir(args.input[0]):
+for bamfile in sorted(os.listdir(args.input[0])):
     if bamfile.endswith(".bam"):
-        filename = bamfile.strip(".bam")
+        filename = bamfile.rstrip(".bam")
         bamfile=os.path.join(args.input[0], bamfile)
     
         index = str(bamfile) +".bai"
@@ -101,7 +103,7 @@ for bamfile in os.listdir(args.input[0]):
 
 combined_o = os.path.join(param.outfolder, "combined.o.coverage")
 combined_f9 = os.path.join(param.outfolder, "combined.f9.coverage")
-for filename in os.listdir(filtered_bams):
+for filename in sorted(os.listdir(filtered_bams)):
     if filename.endswith(".filter.bam"):
         filterbam = os.path.join(filtered_bams, filename)
         
@@ -116,20 +118,19 @@ for filename in os.listdir(filtered_bams):
         pm.clean_add(includeinsert)
         
         if count == 0:
-            cmd = tools.bedtools + " coverage "
-            cmd += "-a " + qPCR_windows
-            cmd += " -b " + filterbam
-            cmd += " | cut -f 1,2,3,4,5 > " 
-            cmd += combined_o
-            pm.run(cmd, lock_name= "combined_o")
+            cmd1 = tools.bedtools + " coverage "
+            cmd1 += "-a " + qPCR_windows
+            cmd1 += " -b " + filterbam
+            cmd1 += " | cut -f 1,2,3,4,5 > " 
+            cmd1 += combined_o
         
-            cmd = tools.bedtools + " coverage "
-            cmd += "-a " + qPCR_windows
-            cmd += " -b " + includeinsert
-            cmd += " -f " + str(args.input7)
-            cmd += " | cut -f 1,2,3,4,5 > "
-            cmd += combined_f9 
-            pm.run(cmd, lock_name= "combined_f9")
+            cmd2 = tools.bedtools + " coverage "
+            cmd2 += "-a " + qPCR_windows
+            cmd2 += " -b " + includeinsert
+            cmd2 += " -f " + str(args.percent_overlap)
+            cmd2 += " | cut -f 1,2,3,4,5 > "
+            cmd2 += combined_f9 
+            pm.run([cmd1, cmd2], lock_name= "coverage")
         
             count += 1
         else:
@@ -138,32 +139,27 @@ for filename in os.listdir(filtered_bams):
             combined_temp_o = os.path.join(param.outfolder, "combined.temp.o.bed")
             combined_temp_f9 = os.path.join(param.outfolder, "combined.temp.f9.bed")
         
-            cmd = tools.bedtools + " coverage "
-            cmd += "-a " + qPCR_windows
-            cmd += " -b " + filterbam
-            cmd += " | cut -f 5 > " 
-            cmd += temp_o
-            pm.run(cmd, lock_name= "temp_o")
+            cmd1 = tools.bedtools + " coverage "
+            cmd1 += "-a " + qPCR_windows
+            cmd1 += " -b " + filterbam
+            cmd1 += " | cut -f 5 > " 
+            cmd1 += temp_o
         
-            cmd = tools.bedtools + " coverage "
-            cmd += "-a " + qPCR_windows
-            cmd += " -b " + includeinsert
-            cmd += " -f " + str(args.input7)
-            cmd += " | cut -f 5 > "
-            cmd += temp_f9
-            pm.run(cmd, lock_name="temp_f9")
+            cmd2 = tools.bedtools + " coverage "
+            cmd2 += "-a " + qPCR_windows
+            cmd2 += " -b " + includeinsert
+            cmd2 += " -f " + str(args.percent_overlap)
+            cmd2 += " | cut -f 5 > "
+            cmd2 += temp_f9
         
-            cmd = "paste " + combined_o + " "+temp_o + " > " + combined_temp_o
-            pm.run(cmd, lock_name="combined_temp_o")
+            cmd3 = "paste " + combined_o + " "+temp_o + " > " + combined_temp_o
         
-            cmd = "mv " + combined_temp_o + " "+combined_o
-            pm.run(cmd, lock_name="combined_o")
+            cmd4 = "mv " + combined_temp_o + " "+combined_o
         
-            cmd = "paste " + combined_f9 + " "+temp_f9 + " > " + combined_temp_f9
-            pm.run(cmd, lock_name="combined_temp_f9")
+            cmd5 = "paste " + combined_f9 + " "+temp_f9 + " > " + combined_temp_f9
         
-            cmd = "mv " + combined_temp_f9 + " "+combined_f9
-            pm.run(cmd, lock_name="combined_f9")
+            cmd6 = "mv " + combined_temp_f9 + " "+combined_f9
+            pm.run([cmd1, cmd2, cmd3, cmd4, cmd5, cmd6], lock_name="coverage2")
         
 pm.clean_add(temp_o)
 pm.clean_add(temp_f9)     
@@ -177,10 +173,10 @@ for filename in os.listdir(filtered_bams):
         
 pm.clean_add(combined_read_counts)  
 
-qPCR_regions = os.path.join(param.outfolder, "qPCR_regions.bed")
+qPCR_regions = os.path.join(param.outfolder, str(args.input2[0]).rstrip(".bed") + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
-cmd += " " + str(args.input3) + " "+ str(args.input4) + " " + str(args.input5) + " " 
-cmd += combined_read_counts + " " + str(param.outfolder)
+cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " " + str(args.return_plot) + " " 
+cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)
 pm.run(cmd, qPCR_regions)
 
 pm.stop_pipeline()

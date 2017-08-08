@@ -7,6 +7,7 @@ cov_cutoff <- args[4]
 return_plot <- args[5]
 lib_sizes <- args[6]
 output_dir <- args[7]
+output_file <- args[8]
 
 o.coverage.data <- read.delim(o.coverage, header=FALSE)
 f9.coverage.data <- read.delim(f9.coverage, header=FALSE)
@@ -111,7 +112,7 @@ make_cor_plot <- function(a,b, corr_cut, cov_cut, r_plot) { #a=obam b=0.9
  }
   
   write.table(combined_regions
-              , paste(output_dir, "qPCR_regions.bed", sep="/")
+              , output_file
               , sep = "\t"
               , col.names = FALSE
               , row.names = FALSE
