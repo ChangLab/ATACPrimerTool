@@ -1,0 +1,16 @@
+# configure file for ATACqPCR pipeline based on pypiper
+#system configure
+tools:
+
+# public tools 
+  samtools: samtools
+  bedtools: bedtools #version 2
+  fetchChromSizes: fetchChromSizes
+
+#User configure 
+resources:
+  genomes: genomes/
+
+parameters:
+    samtools:
+           q: 10

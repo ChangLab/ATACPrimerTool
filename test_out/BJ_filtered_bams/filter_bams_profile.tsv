@@ -1,0 +1,50 @@
+# Pipeline started at 08-09 10:38:40
+
+# Pipeline started at 08-09 10:39:22
+
+# Pipeline started at 08-09 10:41:12
+
+# Pipeline started at 08-09 10:42:30
+
+# Pipeline started at 08-09 10:43:04
+
+bedtools	 ext_peak.bed	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt	0:00:00.250000	 -1
+samtools	 filteredbams__BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+cat	 read_counts	0:00:00.250000	 -1
+# Pipeline started at 08-09 10:45:45
+
+bedtools	 ext_peak.bed	0:00:00.250000	 -1

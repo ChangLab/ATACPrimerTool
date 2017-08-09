@@ -93,6 +93,8 @@ for bamfile in sorted(os.listdir(args.input[0])):
         cmd += bamfile
         cmd += " > " + str(read_counts)
         pm.run(cmd, read_counts)
+        
+        pm.clean_add(read_counts)
     
         filterbam = os.path.join(filtered_bams, filename + ".filter.bam")
         cmd = tools.samtools + " view "
@@ -164,19 +166,18 @@ for filename in sorted(os.listdir(filtered_bams)):
 pm.clean_add(temp_o)
 pm.clean_add(temp_f9)     
 pm.clean_add(combined_o)
-pm.clean_add(combined_f9)  
-combined_read_counts = os.path.join(param.outfolder, "read_counts.txt")
-for filename in os.listdir(filtered_bams):
-    if filename.endswith("_read_counts.txt"):
-        cmd = "cat " + os.path.join(filtered_bams, filename) + " >> " + combined_read_counts
-        pm.run(cmd, lock_name = "read_counts")
-        
-pm.clean_add(combined_read_counts)  
+pm.clean_add(combined_f9) 
+combined_read_counts = os.path.join(param.outfolder, "read_counts.txt") 
+if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
+    for filename in os.listdir(filtered_bams):
+        if filename.endswith("_read_counts.txt"):
+            cmd = "cat " + os.path.join(filtered_bams, filename) + " >> " + combined_read_counts
+            pm.run(cmd, lock_name = "read_counts") 
 
 qPCR_regions = os.path.join(param.outfolder, str(os.path.basename(args.input2[0])).rstrip(".bed") + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
 cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " " + str(args.return_plot) + " " 
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)
-pm.run(cmd, qPCR_regions)
+pm.run(cmd, lock_name = "qPCR_regions")
 
 pm.stop_pipeline()
