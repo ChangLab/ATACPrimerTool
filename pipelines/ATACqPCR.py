@@ -173,7 +173,7 @@ for filename in os.listdir(filtered_bams):
         
 pm.clean_add(combined_read_counts)  
 
-qPCR_regions = os.path.join(param.outfolder, str(args.input2[0]).rstrip(".bed") + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
+qPCR_regions = os.path.join(param.outfolder, str(os.path.basename(args.input2[0])).rstrip(".bed") + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
 cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " " + str(args.return_plot) + " " 
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)

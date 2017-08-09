@@ -3,24 +3,21 @@
 tools:
 
 # basic tools 
-  Rscript: /usr/local/bin/Rscript
+  Rscript: Rscript
   # absolute paths to required tools
 
 # public tools 
-  samtools:  /usr/local/bin/samtools
-  bedtools: /storage/kdriest/bedtools2/bin/bedtools #version 2
-  fetchChromSizes: /seq/ucsc/fetchChromSizes
+  samtools:  samtools
+  bedtools: bedtools #version 2
+  fetchChromSizes: fetchChromSizes
 # private tools
-  make_window_bed: /storage/kdriest/ATACqPCR/scripts/make_window_bed.R
-  find_qPCR_regions: /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R
+  make_window_bed: scripts/make_window_bed.R
+  find_qPCR_regions: scripts/find_qPCR_regions.R
   
 
 #User configure 
 resources:
-  genomes: /storage/kdriest/ATACqPCR/genomes/
-# reference information set up , using  mm9 for example 
-#  changed using referen prefix 
-#  hard code for hg19 now      
+  genomes: genomes/      
 
 parameters:
   # parameters passed to bioinformatic tools, subclassed by tool
