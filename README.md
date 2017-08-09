@@ -25,10 +25,6 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 ./cmd.sh
 ```
 
-## Looping in a project
+## Package dependencies
 
-Project data are in [test_project](test_project). Run the pipeline across all samples in the [annotation sheet](test_project/test_annotation.csv) with this command:
-
-```
-looper -c test_project/test_config.yaml
-```
+This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either be in your `$PATH` or paths can be hardcoded by editing [ATACqPCR.yaml](ATACqPCR.yaml). 
