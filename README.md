@@ -16,6 +16,10 @@ This repo uses [pypiper](https://github.com/epigen/pypiper) to run a pipeline fo
 pip install --user https://github.com/epigen/pypiper/zipball/master
 pip install --user https://github.com/epigen/looper/zipball/master
 ```
+## Configuring yaml files
+
+Run the command `python path/to/ATACqPCR/pipelines yaml_config.py path/to/ATACqPCR` to configure yaml files with user-specific paths.
+
 
 ## Running on a single sample
 

@@ -9,7 +9,7 @@ tools:
 
 #User configure 
 resources:
-  genomes: /storage/kdriest/ATACqPCR/genomes/
+  genomes: <ATACqPCRdir>/genomes/
 
 parameters:
     samtools:

@@ -28,6 +28,7 @@ parser.add_argument("-cov", "--cov_cutoff", default="3", dest="cov_cutoff",type=
 parser.add_argument("-plot", "--return_plot", default="FALSE", dest="return_plot",type=str, help="return plot of window correlations")
 parser.add_argument("-window", "--window_size", default="100", dest="window_size",type=int, help="window size")
 parser.add_argument("-overlap", "--percent_overlap", default="0.9", dest="percent_overlap",type=float, help="percent of fragment overlap")
+parser.add_argument("-seq", "--return_seq", default="true", dest="return_seq", type=bool, help="return seqeuence of qPCR regions")
 args = parser.parse_args()
 
 # Initialize
@@ -46,6 +47,9 @@ res = pm.config.resources
 res.chrom_sizes = os.path.join(res.genomes, args.genome_assembly + ".chromSizes")
 cmd = tools.fetchChromSizes + " " + args.genome_assembly + " > " + res.chrom_sizes
 pm.run(cmd, res.chrom_sizes)
+
+if args.return_seq:
+    res.fasta = os.path.join(res.genomes, args.genome_assembly + "_chr.fa")
 
 output = outfolder
 param.outfolder = outfolder
@@ -179,5 +183,12 @@ cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + co
 cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " " + str(args.return_plot) + " " 
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)
 pm.run(cmd, lock_name = "qPCR_regions")
+
+if args.return_seq:
+    qPCR_regions_seq = str(qPCR_regions).rstrip(".bed") + "_seq.bed"
+    cmd = tools.bedtools + " getfasta -fi "
+    cmd += str(res.fasta) + " -bed " + str(qPCR_regions)
+    cmd += " -name -bedOut > " + str(qPCR_regions_seq)
+    pm.run(cmd, lock_name = "qPCR_regions_seq")
 
 pm.stop_pipeline()

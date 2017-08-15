@@ -11426,3 +11426,1724 @@ Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage
 * Pipeline completed at:  (08-09 10:29:39) elapsed:0:00:23 _TIME_
 
 Pypiper terminating spawned child process 26466
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 12:03:32) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  3 files changed, 16 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `TRUE`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Traceback (most recent call last):
+  File "pipelines/ATACqPCR.py", line 51, in <module>
+    if return_seq:
+NameError: name 'return_seq' is not defined
+
+Pypiper terminating spawned child process 7492
+
+Change status from running to failed
+
+### Pipeline failed at:  (08-14 12:03:32) elapsed:0:00:00 _TIME_
+
+('Total time: ', '0:00:00')
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1055, in _exit_handler
+    self.fail_pipeline(Exception("Unknown exit failure"))
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Unknown exit failure
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1055, in _exit_handler
+    self.fail_pipeline(Exception("Unknown exit failure"))
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Unknown exit failure
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 12:05:04) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  6 files changed, 97 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Traceback (most recent call last):
+  File "pipelines/ATACqPCR.py", line 51, in <module>
+    if return_seq:
+NameError: name 'return_seq' is not defined
+
+Pypiper terminating spawned child process 7798
+
+Change status from running to failed
+
+### Pipeline failed at:  (08-14 12:05:04) elapsed:0:00:00 _TIME_
+
+('Total time: ', '0:00:00')
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1055, in _exit_handler
+    self.fail_pipeline(Exception("Unknown exit failure"))
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Unknown exit failure
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1055, in _exit_handler
+    self.fail_pipeline(Exception("Unknown exit failure"))
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Unknown exit failure
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 13:21:00) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  6 files changed, 178 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Bam file directory: test_data/BJ_bams/
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg19	ATACqPCR	_RES_
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+> `Rscript /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R test_data/test_peaks.bed 100 /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+
+<pre>
+Error in file(file, "rt") : cannot open the connection
+Calls: read.delim -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") : cannot open file '100': No such file or directory
+Execution halted
+</pre>
+Process 17233 returned: (1). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Change status from running to failed
+
+### Pipeline failed at:  (08-14 13:21:01) elapsed:0:00:00 _TIME_
+
+('Total time: ', '0:00:00')
+Traceback (most recent call last):
+  File "pipelines/ATACqPCR.py", line 67, in <module>
+    pm.run(cmd, qPCR_windows)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 485, in run
+    process_return_code, local_maxmem = self.callprint(cmd, shell, nofail, container)  # Run command
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 655, in callprint
+    self.fail_pipeline(e)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Subprocess returned nonzero result.
+
+Pypiper terminating spawned child process 17218
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 13:24:58) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  7 files changed, 266 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Bam file directory: test_data/BJ_bams/
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg19	ATACqPCR	_RES_
+Waiting for file lock: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/lock.qPCR_windows.bed (08-14 13:24:58) elapsed:0:00:00 _TIME_
+
+Change status from running to waiting
+..----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 13:25:25) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  7 files changed, 325 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Bam file directory: test_data/BJ_bams/
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg19	ATACqPCR	_RES_
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+> `Rscript /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R test_data/test_peaks.bed 100 /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+
+<pre>
+Error in file(file, "rt") : cannot open the connection
+Calls: read.delim -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") : cannot open file '100': No such file or directory
+Execution halted
+</pre>
+Process 17798 returned: (1). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Change status from running to failed
+
+### Pipeline failed at:  (08-14 13:25:25) elapsed:0:00:00 _TIME_
+
+('Total time: ', '0:00:00')
+Traceback (most recent call last):
+  File "pipelines/ATACqPCR.py", line 67, in <module>
+    pm.run(cmd, qPCR_windows)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 485, in run
+    process_return_code, local_maxmem = self.callprint(cmd, shell, nofail, container)  # Run command
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 655, in callprint
+    self.fail_pipeline(e)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Subprocess returned nonzero result.
+
+Pypiper terminating spawned child process 17783
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 17:09:07) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  7 files changed, 412 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Bam file directory: test_data/BJ_bams/
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg19	ATACqPCR	_RES_
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+> `Rscript /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R test_data/test_peaks.bed 100 /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+
+<pre>
+Error in file(file, "rt") : cannot open the connection
+Calls: read.delim -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") : cannot open file '100': No such file or directory
+Execution halted
+</pre>
+Process 44018 returned: (1). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Change status from running to failed
+
+### Pipeline failed at:  (08-14 17:09:07) elapsed:0:00:00 _TIME_
+
+('Total time: ', '0:00:00')
+Traceback (most recent call last):
+  File "pipelines/ATACqPCR.py", line 67, in <module>
+    pm.run(cmd, qPCR_windows)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 485, in run
+    process_return_code, local_maxmem = self.callprint(cmd, shell, nofail, container)  # Run command
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 655, in callprint
+    self.fail_pipeline(e)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Subprocess returned nonzero result.
+
+Pypiper terminating spawned child process 44003
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 17:16:03) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  7 files changed, 500 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Bam file directory: test_data/BJ_bams/
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg19	ATACqPCR	_RES_
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+> `Rscript /storage/kdriest/ATACqPCR/scripts/make_window_bed.R test_data/test_peaks.bed 100 /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+
+<pre>
+</pre>
+Process 44784 returned: (0). Elapsed: 0:00:06. Peak memory: (Process: 0.031GB; Pipeline: 0.0GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/ext_peak.bed`
+> `bedtools slop  -i test_data/test_peaks.bed -g /storage/kdriest/ATACqPCR/genomes/hg19.chromSizes -b 2000 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/ext_peak.bed`
+
+<pre>
+</pre>
+Process 44791 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/BJ_bams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44793 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 1,2,3,4,5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44798 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 1,2,3,4,5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44801 returned: (0). Elapsed: 0:00:00.
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44804 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44809 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44812 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44815 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44817 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44818 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44820 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44821 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44826 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44829 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44832 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44834 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: -1.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44835 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44837 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44838 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44843 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44846 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44849 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44851 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44852 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44854 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44855 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44860 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44863 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44866 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44868 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44869 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44871 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44872 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44877 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44880 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44883 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44885 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44886 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44888 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44889 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44894 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44897 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44900 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44902 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44903 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44905 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44906 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44911 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44915 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44919 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44921 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44922 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44925 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44926 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44932 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44935 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44938 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44940 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44941 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44943 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44944 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44949 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44952 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44955 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44957 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44958 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44960 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44961 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44966 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44969 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44972 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44974 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44975 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44977 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Target to produce: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+<pre>
+</pre>
+Process 44978 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 44985 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 44988 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 44991 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 44993 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 44994 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 44996 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.031GB)
+
+Targetless command, running...
+> `Rscript /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage 0.8 3 FALSE /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/read_counts.txt /storage/kdriest/ATACqPCR/test_out/BJ_qPCR /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3.bed`
+
+<pre>
+</pre>
+Process 44997 returned: (0). Elapsed: 0:00:06. Peak memory: (Process: 0.031GB; Pipeline: 0.031GB)
+
+Targetless command, running...
+> `bedtools getfasta -fi /storage/kdriest/ATACqPCR/genomes/hg19_chr.fa bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3.bed -name -bedOut > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3_seq.bed`
+
+<pre>
+*****ERROR: Unrecognized parameter: bed *****
+
+*****ERROR: Unrecognized parameter: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3.bed *****
+
+
+Tool:    bedtools getfasta (aka fastaFromBed)
+Version: v2.26.0
+Summary: Extract DNA sequences from a fasta file based on feature coordinates.
+
+Usage:   bedtools getfasta [OPTIONS] -fi <fasta> -bed <bed/gff/vcf>
+
+Options: 
+	-fi	Input FASTA file
+	-bed	BED/GFF/VCF file of ranges to extract from -fi
+	-name	Use the name field for the FASTA header
+	-split	given BED12 fmt., extract and concatenate the sequencesfrom the BED "blocks" (e.g., exons)
+	-tab	Write output in TAB delimited format.
+		- Default is FASTA format.
+
+	-s	Force strandedness. If the feature occupies the antisense,
+		strand, the sequence will be reverse complemented.
+		- By default, strand information is ignored.
+
+	-fullHeader	Use full fasta header.
+		- By default, only the word before the first space or tab is used.
+
+</pre>
+Process 45007 returned: (1). Elapsed: 0:00:00.
+
+Change status from running to failed
+
+### Pipeline failed at:  (08-14 17:16:35) elapsed:0:00:32 _TIME_
+
+('Total time: ', '0:00:32')
+Traceback (most recent call last):
+  File "pipelines/ATACqPCR.py", line 192, in <module>
+    pm.run(cmd, lock_name = "qPCR_regions_seq")
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 485, in run
+    process_return_code, local_maxmem = self.callprint(cmd, shell, nofail, container)  # Run command
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 655, in callprint
+    self.fail_pipeline(e)
+  File "/storage/kdriest/.local/lib/python2.7/site-packages/pypiper/pypiper.py", line 1008, in fail_pipeline
+    raise e
+Exception: Subprocess returned nonzero result.
+
+Pypiper terminating spawned child process 44769
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACqPCR.py -P 3 -M 100 -O test_out -S BJ_qPCR -G hg19 -C ATACqPCR.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACqPCR
+*            Outfolder:  /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/
+*  Pipeline started at:   (08-14 17:18:20) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACqPCR/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  61bed95fb01528c5ef8c23b69b0ee32712f60366
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-08-09 11:02:28 -0700
+*        Pipeline diff:  7 files changed, 1399 insertions(+), 5 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/BJ_bams/']`
+*                `mem`:  `100`
+*        `sample_name`:  `BJ_qPCR`
+*        `config_file`:  `ATACqPCR.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*        `return_plot`:  `FALSE`
+*    `genome_assembly`:  `hg19`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `3`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+Command is not callable: pigz
+
+Target exists: `/storage/kdriest/ATACqPCR/genomes/hg19.chromSizes`
+Bam file directory: test_data/BJ_bams/
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg19	ATACqPCR	_RES_
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/ext_peak.bed`
+
+Target exists: `test_data/BJ_bams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `test_data/BJ_bams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.bam.bai`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam`
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 1,2,3,4,5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45279 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 1,2,3,4,5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45282 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45285 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45288 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45291 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45293 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45294 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45296 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45297 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45300 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45303 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45305 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45306 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45308 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45309 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45312 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45315 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45317 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45318 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45320 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45321 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45324 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45327 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45329 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45330 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45332 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45333 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45336 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45339 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45341 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45342 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45344 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45345 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45348 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45351 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45353 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45354 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45356 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45357 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45360 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45363 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45365 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45366 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45368 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45369 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45372 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45375 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45377 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45378 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45380 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45381 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45384 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45387 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45389 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45390 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45392 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45393 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45396 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45399 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45401 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45402 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45404 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Target exists: `/storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter.filter.bam | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+<pre>
+</pre>
+Process 45405 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed -b /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+<pre>
+</pre>
+Process 45408 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 45412 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.o.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+<pre>
+</pre>
+Process 45415 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+> `paste /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 45416 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.temp.f9.bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 45418 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.0GB)
+
+Targetless command, running...
+> `Rscript /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage 0.8 3 FALSE /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/read_counts.txt /storage/kdriest/ATACqPCR/test_out/BJ_qPCR /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3.bed`
+
+<pre>
+</pre>
+Process 45419 returned: (0). Elapsed: 0:00:06. Peak memory: (Process: 0.031GB; Pipeline: 0.0GB)
+
+Targetless command, running...
+> `bedtools getfasta -fi /storage/kdriest/ATACqPCR/genomes/hg19_chr.fa -bed /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3.bed -name -bedOut > /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/test_peaks_qPCR_regions_corr0.8_cov3_seq.bed`
+
+<pre>
+index file /storage/kdriest/ATACqPCR/genomes/hg19_chr.fa.fai not found, generating...
+</pre>
+Process 45427 returned: (0). Elapsed: 0:00:16.
+
+Change status from running to completed
+
+Cleaning up flagged intermediate files...
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/qPCR_windows.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/ext_peak.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/ext_peak.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/filteredbams/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.filter_read_counts.txt`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-DMSO-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-JQ1-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-THZ-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-1h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-2h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/BJ-TopI-6h.trim.sort.nuc.uniq.rmdup.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.o.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/temp.f9.bed`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.o.coverage`
+
+Removing glob: /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage
+`rm /storage/kdriest/ATACqPCR/test_out/BJ_qPCR/combined.f9.coverage`
+> `Time`	0:00:39	ATACqPCR	_RES_
+> `Success`	08-14-17:18:59	ATACqPCR	_RES_
+
+##### [Epilogue:]
+*   Total elapsed time:  0:00:39
+*     Peak memory used:  0.03 GB
+* Pipeline completed at:  (08-14 17:18:59) elapsed:0:00:39 _TIME_
+
+Pypiper terminating spawned child process 45264

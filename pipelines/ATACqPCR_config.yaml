@@ -11,13 +11,13 @@ tools:
   bedtools: bedtools #version 2
   fetchChromSizes: fetchChromSizes
 # private tools
-  make_window_bed: /storage/kdriest/ATACqPCR/scripts/make_window_bed.R
-  find_qPCR_regions: /storage/kdriest/ATACqPCR/scripts/find_qPCR_regions.R
+  make_window_bed: <ATACqPCRdir>/scripts/make_window_bed.R
+  find_qPCR_regions: <ATACqPCRdir>/scripts/find_qPCR_regions.R
   
 
 #User configure 
 resources:
-  genomes: /storage/kdriest/ATACqPCR/genomes/      
+  genomes: <ATACqPCRdir>/genomes/      
 
 parameters:
   # parameters passed to bioinformatic tools, subclassed by tool
