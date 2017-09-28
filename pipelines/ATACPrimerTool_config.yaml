@@ -1,4 +1,4 @@
-# configure file for ATACqPCR pipeline based on pypiper
+# configure file for ATACPrimerTool based on pypiper
 #system configure
 tools:
 

@@ -1,4 +1,4 @@
-# ATAC Primer Tool
+# ATAC Primer Tol
 
 Version: 1
 
@@ -10,7 +10,8 @@ Updated by : kdriest@stanford.edu
 
 ## Installing
 
-This repo uses [pypiper](https://github.com/epigen/pypiper) to run a pipeline for a single sample, and [looper](https://github.com/epigen/looper) to handle multi-samples job submission for a project. You can do a user-specific install of both like this:
+This repo uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline. You can do a user-specific install 
+of both like this:
 
 ```
 pip install --user https://github.com/epigen/pypiper/zipball/master
@@ -34,11 +35,28 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 
 ## Package dependencies
 
-This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either be in your `$PATH` or paths can be hardcoded by editing [ATACqPCR.yaml](pipelines/ATACqPCR.yaml). 
+This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
+be in your `$PATH` or paths can be hardcoded by editing [ATACqPCR.yaml](pipelines/ATACqPCR.yaml). 
+
+
 
 ## Reference genomes
 
-Chromosome sizes for the following reference genomes are available in [genomes](genomes/): hg19, hg38, mm9, mm10.  If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  In order to output the sequence of optimal regions, you must also have downloaded the reference genome fasta file.
+Chromosome sizes for the following reference genomes are available in [genomes](genomes/): hg19, hg38, mm9, mm10.  
+If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to 
+[ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  In order to output the sequence of optimal regions, you must also have 
+downloaded the reference genome fasta file. Reference genomes can be downloaded in 2bit format using the following links:
+
+[hg19](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit)
+
+[hg38](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit)
+
+[mm9](http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit)
+
+[mm10](http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit)
+
+Reference genomes can be converted to fasta format using UCSC's [twoBitToFa](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa), 
+which is also avilable as the ucsc-twobittofa package in bioconda.
 
 ## Input files
 
@@ -66,4 +84,40 @@ The following parameters can be modified:
 
 Modification of the correlation and coverage parameters can be useful to select most optimal primers if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help.
 
+##Getting Started
 
+Below is an example for running APT to design primers for the MDM2 and DDIT3 promoters.  The input files are included in the [test_data](test_data/) 
+directory and bam files have been pre-filtered for the regions of interest. The output generated in included in the [test_out](test_out/) directory.
+
+Before starting, make sure pypiper and all dependencies have been installed, as well as the appropriate reference genomes if DNA sequence is required
+in addition to coordinates.  
+
+Modify [ATACqPCR.yaml](pipelines/ATACqPCR.yaml) to include paths of required dependencies if they are not the your `$PATH` variable.
+
+Enter the ATACPrimerTool directory
+
+```
+cd ATACPrimerTool/
+```
+
+Make a directory for output
+
+```
+mkdir APTpractice/
+```
+
+An example APT command with default arguments is available in [cmd.sh](cmd.sh).  You can either run this command directly using
+
+```
+./cmd.sh
+```
+
+or by running
+
+```
+python pipelines/ATACPrimerTool.py -P 3 -M 100 -O APT_practice -S BJ_qPCR -G hg19 -C ATACPrimerTool.yaml 
+-I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 
+-overlap 0.9 
+```
+
+##Terms of use and licensing information

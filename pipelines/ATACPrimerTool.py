@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-ATAC qPCR pipeline
+ATAC Primer Tool
 """
 __author__="Katie Yost"
 __email__="kdriest@stanford.edu"
