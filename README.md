@@ -33,6 +33,11 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 ./cmd.sh
 ```
 
+## Designing normalization controls
+
+APT can also design additional normalization controls for ATAC-qPCR based on a specific cell type of interest or for ATAC-qPCR in species
+for which normalization controls have not been designed.  See the documentation at [How to Design Normalization Controls](How_to_design_normalization_controls.md)
+
 ## Package dependencies
 
 This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
@@ -100,12 +105,6 @@ Enter the ATACPrimerTool directory
 cd ATACPrimerTool/
 ```
 
-Make a directory for output
-
-```
-mkdir APTpractice/
-```
-
 An example APT command with default arguments is available in [cmd.sh](cmd.sh).  You can either run this command directly using
 
 ```
@@ -115,9 +114,7 @@ An example APT command with default arguments is available in [cmd.sh](cmd.sh). 
 or by running
 
 ```
-python pipelines/ATACPrimerTool.py -P 3 -M 100 -O APT_practice -S BJ_qPCR -G hg19 -C ATACPrimerTool.yaml 
--I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 
--overlap 0.9 
+python pipelines/ATACPrimerTool.py -P 3 -M 100 -O APT_practice -S BJ_qPCR -G hg19 -C ATACPrimerTool.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9 
 ```
 
 ## Terms of use and licensing information
