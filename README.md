@@ -115,6 +115,6 @@ python pipelines/ATACPrimerTool.py -P 3 -M 100 -O APT_practice -S BJ_qPCR -G hg1
 ## Designing normalization controls
 
 APT can also design additional normalization controls for ATAC-qPCR based on a specific cell type of interest or for ATAC-qPCR in species
-for which normalization controls have not been designed.  See the documentation at [How to Design Normalization Controls](How_to_design_normalization_controls.md)
+for which normalization controls have not been designed.  For usage see [How to Design Normalization Controls](How_to_design_normalization_controls.md)
 
 ## Terms of use and licensing information
