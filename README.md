@@ -18,8 +18,11 @@ pip install --user https://github.com/epigen/looper/zipball/master
 ```
 ## Configuring yaml files
 
-Run the command `python path/to/ATACqPCR/pipelines yaml_config.py path/to/ATACqPCR` to configure yaml files with user-specific paths.
-
+Run the command 
+```
+python path/to/ATACqPCR/pipelines yaml_config.py path/to/ATACqPCR
+```
+ to configure yaml files with user-specific paths.
 
 ## Running on a single sample
 
@@ -35,4 +38,5 @@ This pipeline requires the following packages: R, samtools and bedtools (>= vers
 
 ## Reference genomes
 
-Chromosome sizes for the following reference genomes are available in [genomes](genomes/): hg19, hg38, mm9, mm10.  If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).
+Chromosome sizes for the following reference genomes are available in [genomes](genomes/): hg19, hg38, mm9, mm10.  If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  In order to output the sequence of optimal regions, you must also have downloaded the reference genome fasta file.
+
