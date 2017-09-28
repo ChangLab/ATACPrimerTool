@@ -47,15 +47,15 @@ If you would like to use another reference genome, download [fetchChromSizes](ht
 [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  In order to output the sequence of optimal regions, you must also have 
 downloaded the reference genome fasta file. Reference genomes can be downloaded in 2bit format using the following links:
 
-[hg19](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit)
+hg19: [http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit)
 
-[hg38](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit)
+hg38: [http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit)
 
-[mm9](http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit)
+mm9: [http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit)
 
-[mm10](http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit)
+mm10: [http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit)
 
-Reference genomes can be converted to fasta format using UCSC's [twoBitToFa](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa), 
+Reference genomes can be converted to fasta format using UCSC's twoBitToFa [(available here)](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa), 
 which is also avilable as the ucsc-twobittofa package in bioconda.
 
 ## Input files
@@ -84,7 +84,7 @@ The following parameters can be modified:
 
 Modification of the correlation and coverage parameters can be useful to select most optimal primers if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help.
 
-##Getting Started
+## Getting Started
 
 Below is an example for running APT to design primers for the MDM2 and DDIT3 promoters.  The input files are included in the [test_data](test_data/) 
 directory and bam files have been pre-filtered for the regions of interest. The output generated in included in the [test_out](test_out/) directory.
@@ -120,4 +120,4 @@ python pipelines/ATACPrimerTool.py -P 3 -M 100 -O APT_practice -S BJ_qPCR -G hg1
 -overlap 0.9 
 ```
 
-##Terms of use and licensing information
+## Terms of use and licensing information
