@@ -30,7 +30,7 @@ python path/to/ATACPrimerTool/pipelines/yaml_config.py path/to/ATACPrimerTool
 This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
 be in your `$PATH` or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool.yaml). 
 
-## Running on a single sample
+## Running the pipeline
 
 See example command in [cmd.sh](cmd.sh) or run it with:
 

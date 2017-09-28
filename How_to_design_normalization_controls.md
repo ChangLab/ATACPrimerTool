@@ -14,7 +14,7 @@ also requires MACS2, Picard and Homer.
 Make sure package depedencies are either in the `$PATH` variable or hardcoded in the 
 [norm_peaks.yaml](pipelines/norm_peaks.yaml) file.  
 
-## Running on a single sample
+## Running the pipeline
 
 See example command in [norm_peaks.sh](norm_peaks.sh) or run it with:
 
