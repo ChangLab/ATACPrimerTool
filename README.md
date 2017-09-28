@@ -1,4 +1,4 @@
-# ATAC Primer Tol
+# ATAC Primer Tool
 
 Version: 1
 
@@ -21,9 +21,14 @@ pip install --user https://github.com/epigen/looper/zipball/master
 
 Run the command 
 ```
-python path/to/ATACqPCR/pipelines yaml_config.py path/to/ATACqPCR
+python path/to/ATACPrimerTool/pipelines/yaml_config.py path/to/ATACPrimerTool
 ```
  to configure yaml files with user-specific paths.
+ 
+## Package dependencies
+
+This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
+be in your `$PATH` or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool.yaml). 
 
 ## Running on a single sample
 
@@ -32,12 +37,6 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 ```
 ./cmd.sh
 ```
-
-## Package dependencies
-
-This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
-be in your `$PATH` or paths can be hardcoded by editing [ATACqPCR.yaml](pipelines/ATACqPCR.yaml). 
-
 
 
 ## Reference genomes
