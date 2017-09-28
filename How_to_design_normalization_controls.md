@@ -24,12 +24,12 @@ See example command in [norm_peaks.sh](norm_peaks.sh) or run it with:
 
 ## Input files
 
-Identification of normalization peak requires ATAC-seq bam files from the cell type or species of interest.  ATAC-seq peak files in narrowPeak format can also
+Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  ATAC-seq peak files in narrowPeak format can also
 be used directly, although bam files are required for primer design.
 
 Bam files should be obtained from paired-end sequencing and sorted by position.  
 
-## Paramters
+## Parameters
 
 The following parameters can be modified:
 
@@ -42,7 +42,7 @@ The following parameters can be modified:
 ## Getting Started
 
 Below is an example for identifying normalization peaks based on publically available human ATAC-seq datasets from ENCODE.  The input files are listed in the 
-ATAC Primer Tool manuscript as well as in the [test_data/norm_peaks](test_data/norm_peaks) directory. The list of normalization peaks generated is included in the [test_out/norm_peaks](test_out/norm_peaks) directory.  Intermediate files generated are not included due to file size, but will also be produced by the pipeline.  To identify normalization peaks:
+ATAC Primer Tool manuscript as well as in the [test_data/norm_peaks](test_data/norm_peaks) directory. The annotated list of normalization peaks generated is included in the [test_out/norm_peaks](test_out/norm_peaks) directory.  Intermediate files generated are not included due to file size, but will also be produced by the pipeline.  To identify normalization peaks:
 
 Enter the ATACPrimerTool directory
 
@@ -62,6 +62,6 @@ or by running
 python pipelines/norm_peaks.py -P 3 -M 100 -O test_out/ -S BJ_norm -G hg19 -C norm_peaks.yaml -I ~/BJ_analysis -return 500 -gs hs -rmdup true
 ```
 
-The normalization peak pipeline will produce a list of low variance peaks as well as their annotations.  For our uses, we selected peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
+The normalization peak pipeline will produce a list of low variance peaks as well as their annotations.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
 
 Once suitable normalization peaks have been identified, ATAC-seq bam files and normalization peak coordinates can be used as input into ATAC Primer Tool to identify optimal primer locations, as described in the [README](README.md).

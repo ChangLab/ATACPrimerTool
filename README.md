@@ -45,7 +45,7 @@ Chromosome sizes for the following reference genomes are available in the [genom
 If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to 
 [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  
 
-In order to output the sequence of optimal regions, you must also have 
+In order to output the DNA sequence of optimal primer regions, you must also have 
 downloaded the reference genome fasta file. Reference genomes can be downloaded in 2bit format using the following links:
 
 hg19: [http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit)
@@ -57,7 +57,7 @@ mm9: [http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit](http://hgd
 mm10: [http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit)
 
 Reference genomes can be converted to fasta format using UCSC's twoBitToFa [(available here)](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa), 
-which is also avilable as the ucsc-twobittofa package in bioconda.
+which is also available in bioconda as ucsc-twobittofa.
 
 ## Input files
 
@@ -67,7 +67,7 @@ Bam files must be from paired-end sequencing and sorted by position.
 
 APT also requires the coordinates of the peaks for which primers should be designed.  Coordinates should be supplied in bed file format and match the reference genome to which the bam files were mapped.
 
-## APT Paramters
+## APT Parameters
 
 There are multiple parameters of APT that you can modify to fit your needs, although the default parameters are a good place to start. After running APT on a set of peaks, you can quickly rerun with different parameters using the same output directory and sample name. Output files will not be overwritten.   
 
@@ -83,7 +83,7 @@ The following parameters can be modified:
 
 `-plot (--return_plot)`: whether plot of window correlations across peaks should be returned. Default is false.
 
-Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend not to give as accurate of results with ATAC-qPCR.
+Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend to give less accurate results with ATAC-qPCR.
 
 ## Getting Started
 
