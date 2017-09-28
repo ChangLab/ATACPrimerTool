@@ -41,9 +41,11 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 
 ## Reference genomes
 
-Chromosome sizes for the following reference genomes are available in [genomes](genomes/): hg19, hg38, mm9, mm10.  
+Chromosome sizes for the following reference genomes are available in the [genomes](genomes/) directory: hg19, hg38, mm9, mm10.  
 If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to 
-[ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  In order to output the sequence of optimal regions, you must also have 
+[ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  
+
+In order to output the sequence of optimal regions, you must also have 
 downloaded the reference genome fasta file. Reference genomes can be downloaded in 2bit format using the following links:
 
 hg19: [http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit)
@@ -59,9 +61,9 @@ which is also avilable as the ucsc-twobittofa package in bioconda.
 
 ## Input files
 
-APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files can be specific to your cell type of interest and/or downloaded from public repositories such as ENCODE or GEO.  A list of ATAC-seq datasets from a variety of both human and mouse tissue is supplied in the APT manuscript.  
+APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files can be downloaded from public repositories such as ENCODE or GEO or user-generated to match your cell type of interest.  A list of ATAC-seq datasets from a variety of both human and mouse tissue available from ENCODE is supplied in the APT manuscript.  
 
-Bam files should be obtained from paired-end sequencing and sorted by position.  
+Bam files must be from paired-end sequencing and sorted by position.  
 
 APT also requires the coordinates of the peaks for which primers should be designed.  Coordinates should be supplied in bed file format and match the reference genome to which the bam files were mapped.
 
@@ -81,11 +83,11 @@ The following parameters can be modified:
 
 `-plot (--return_plot)`: whether plot of window correlations across peaks should be returned. Default is false.
 
-Modification of the correlation and coverage parameters can be useful to select most optimal primers if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help.
+Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend not to give as accurate of results with ATAC-qPCR.
 
 ## Getting Started
 
-Below is an example for running APT to design primers for the MDM2 and DDIT3 promoters.  The input files are included in the [test_data](test_data/) 
+Below is an example for running APT to design primers for the AK5 and KIF26B promoters.  The input files are included in the [test_data](test_data/) 
 directory and bam files have been pre-filtered for the regions of interest. The output generated in included in the [test_out](test_out/) directory.
 
 Before starting, make sure pypiper and all dependencies have been installed, as well as the appropriate reference genomes if DNA sequence is required
