@@ -53,11 +53,16 @@ APT also requires the coordinates of the peaks for which primers should be desig
 There are multiple parameters of APT that you can modify to fit your needs, although the default parameters are a good place to start. After running APT on a set of peaks, you can quickly rerun with different parameters using the same output directory and sample name. Output files will not be overwritten.   
 
 The following parameters can be modified:
--window (--window_size): window size in basepairs into which peaks are binned. Default is 100.
--cov (--coverage): cutoff for average spanning fragment coverage.  Default is 3 (or ~500 copies/1ng input library).
--cor (--correlation): cutoff for correlation between number of spanning fragments in window and total peak height across samples.  Default is 0.8.
--seq (--return_seq): whether DNA sequence of optimal primer regions should be returned. Requires reference genome fasta in genomes directory.  Default is false. 
--plot (--return_plot): whether plot of window correlations across peaks should be returned. Default is false.
+
+`-window (--window_size)`: window size in basepairs into which peaks are binned. Default is 100.
+
+`-cov (--coverage)`: cutoff for average spanning fragment coverage.  Default is 3 (or ~500 copies/1ng input library).
+
+`-cor (--correlation)`: cutoff for correlation between number of spanning fragments in window and total peak height across samples.  Default is 0.8.
+
+`-seq (--return_seq)`: whether DNA sequence of optimal primer regions should be returned. Requires reference genome fasta in genomes directory.  Default is false. 
+
+`-plot (--return_plot)`: whether plot of window correlations across peaks should be returned. Default is false.
 
 Modification of the correlation and coverage parameters can be useful to select most optimal primers if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help.
 
