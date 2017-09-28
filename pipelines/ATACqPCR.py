@@ -97,12 +97,10 @@ for bamfile in sorted(os.listdir(args.input[0])):
         cmd += bamfile
         cmd += " > " + str(read_counts)
         pm.run(cmd, read_counts)
-        
-        pm.clean_add(read_counts)
     
         filterbam = os.path.join(filtered_bams, filename + ".filter.bam")
         cmd = tools.samtools + " view "
-        cmd += "-b -L "
+        cmd += "-b -F 4 -L "
         cmd += ext_peak + " " + bamfile
         cmd += " > " + filterbam
         pm.run(cmd, filterbam)

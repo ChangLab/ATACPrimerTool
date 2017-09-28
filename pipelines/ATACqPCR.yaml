@@ -8,7 +8,7 @@ tools:
 
 # public tools 
   samtools:  samtools
-  bedtools: bedtools #version 2
+  bedtools: bedtools
   fetchChromSizes: fetchChromSizes
 # private tools
   make_window_bed: /storage/kdriest/ATACqPCR/scripts/make_window_bed.R
