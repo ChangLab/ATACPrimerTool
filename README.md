@@ -1,4 +1,4 @@
-# ATACqPCR pipeline
+# ATAC Primer Tool
 
 Version: 1
 
