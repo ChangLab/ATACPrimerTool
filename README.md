@@ -89,8 +89,8 @@ Modification of the correlation and coverage parameters can be useful to narrow 
 
 ## Getting Started
 
-Below is an example for running APT to design primers for the AK5 and KIF26B promoters.  The input files are included in the [test_data](test_data/) 
-directory and bam files have been pre-filtered for the regions of interest. The output generated in included in the [test_out](test_out/) directory.
+Below is an example for running APT to design primers for the MDM2 and DDIT3 promoters.  The input files are included in the [test_data](test_data/) 
+directory and bam files have been pre-filtered for the regions of interest. The output generated in included in the [test_out/APT_test](test_out/APT_test) directory.
 
 Before starting, make sure pypiper and all dependencies have been installed, as well as the appropriate reference genomes if DNA sequence is required
 in addition to coordinates.  
@@ -112,8 +112,10 @@ An example APT command with default arguments is available in [cmd.sh](cmd.sh). 
 or by running
 
 ```
-python pipelines/ATACPrimerTool.py -P 3 -M 100 -O APT_practice -S BJ_qPCR -G hg19 -C ATACPrimerTool.yaml -I test_data/BJ_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -plot FALSE -window 100 -overlap 0.9 
+python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg19 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3  -window 100 -overlap 0.9 
 ```
+
+Results will be in the located in the `APT_practice/APT_test` directory.
 
 ## Designing normalization controls
 
