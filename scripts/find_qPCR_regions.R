@@ -4,10 +4,9 @@ o.coverage <- args[1]
 f9.coverage <- args[2]
 corr_cutoff <- args[3]
 cov_cutoff <- args[4]
-return_plot <- args[5]
-lib_sizes <- args[6]
-output_dir <- args[7]
-output_file <- args[8]
+lib_sizes <- args[5]
+output_dir <- args[6]
+output_file <- args[7]
 
 o.coverage.data <- read.delim(o.coverage, header=FALSE)
 f9.coverage.data <- read.delim(f9.coverage, header=FALSE)
@@ -33,9 +32,7 @@ split_coverage <- function(a) {
   return(returnlist)
 }
 
-make_cor_plot <- function(a,b, corr_cut, cov_cut, r_plot) { #a=obam b=0.9
-  library(ggplot2)
-  library(gridExtra)
+find_regions <- function(a,b, corr_cut, cov_cut) { #a=obam b=0.9
   
   asplit <- split_coverage(a)
   bsplit <- split_coverage(b)
@@ -52,7 +49,7 @@ make_cor_plot <- function(a,b, corr_cut, cov_cut, r_plot) { #a=obam b=0.9
 	
     corb <- data.frame(cor(t(a_split[1,5:m])
                            , t(b_split[-1,5:m])
-						   , method = "pearson"))
+						   , method = "spearman"))
     
     data <- data.frame(t(corb), row.names = NULL, stringsAsFactors = FALSE)
     
@@ -68,21 +65,6 @@ make_cor_plot <- function(a,b, corr_cut, cov_cut, r_plot) { #a=obam b=0.9
     colnames(data2)<-c("position","averageReadDepth")
     colnames(data3)<-c("position","averageReadDepth")
 	
-    if (as.logical(r_plot)){
-		p <- ggplot(data
-					, aes(y=correlation
-						  , x=position)) + 
-		  geom_bar(stat="identity",fill="blue", alpha=.4,width=1)
-		
-		q <- ggplot(data2
-					, aes(y=averageReadDepth
-						  , x=position))+ 
-		  geom_bar(stat="identity", fill= "black", alpha=.4,width=1)
-		
-		g <- arrangeGrob(p,q,ncol=1,top=as.character(a_split[1,4]))
-		ggsave(file=paste(output_dir, as.character(a_split[1,4]),"_correlation.pdf", sep=""), g)
-	}
-    
     regions <- data[which(data$correlation > as.numeric(corr_cut) & data3$averageReadDepth > as.numeric(cov_cut)),]
     regions <- regions[,2:4]
     if (nrow(regions)>0){
@@ -118,4 +100,4 @@ make_cor_plot <- function(a,b, corr_cut, cov_cut, r_plot) { #a=obam b=0.9
               , row.names = FALSE
               , quote = FALSE)				  
 }
-make_cor_plot(o.coverage.data, f9.coverage.data, corr_cutoff, cov_cutoff, return_plot)
+find_regions(o.coverage.data, f9.coverage.data, corr_cutoff, cov_cutoff)

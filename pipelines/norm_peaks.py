@@ -24,7 +24,8 @@ parser = pypiper.add_pypiper_args(parser, all_args = True)
 #Add any pipeline-specific arguments
 parser.add_argument('-gs', '--genome-size', default="hs", dest='genomeS',type=str, help='genome size for Macs2')
 parser.add_argument("-return", "--return_peaks", default="500", dest="returnN",type=int, help="number of peaks to return")
-parser.add_argument('-rmdup', "--duplicates-removed", default="false", dest="rmdup", type=bool, help="bam files already have duplicates removed")
+parser.add_argument('-rmdup', "--duplicates-removed", action='store_true', default=False, dest="rmdup", help="bam files already have duplicates removed")
+parser.add_argument('-narrowpeak', "--narrowpeak-input", action='store_true', default=False, dest="narrowpeak", help="starting with narrowpeak files")
 args = parser.parse_args()
 
 # Initialize
@@ -57,44 +58,48 @@ rmdup_folder = os.path.join(param.outfolder, "rmdup_bams")
 ngstk.make_dir(rmdup_folder)
 
 # Find low variance peaks
-for bamfile in sorted(os.listdir(args.input[0])):
-    if bamfile.endswith(".bam"):
-        filename = os.path.basename(bamfile).rstrip(".bam")
-        bamfile=os.path.join(args.input[0], bamfile)
+if not args.narrowpeak:
+    for bamfile in sorted(os.listdir(args.input[0])):
+        if bamfile.endswith(".bam"):
+            filename = os.path.basename(bamfile).rstrip(".bam")
+            bamfile=os.path.join(args.input[0], bamfile)
     
-        index = str(bamfile) +".bai"
-        cmd = tools.samtools + " index " + bamfile
-        pm.run(cmd, index)
+            index = str(bamfile) +".bai"
+            cmd = tools.samtools + " index " + bamfile
+            pm.run(cmd, index)
         
-        if not args.rmdup:
-            rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
-            Metrics_file = os.path.join(rmdup_folder, filename + "_picard_metrics_bam.txt")
-            picard_log = os.path.join(rmdup_folder, filename + "_picard_metrics_log.txt")
-            cmd3 =  tools.picard + " MarkDuplicates "  + " INPUT=" + bamfile + " OUTPUT="
-            cmd3 += rmdup_bam + " METRICS_FILE=" + Metrics_file + " VALIDATION_STRINGENCY=LENIENT"
-            cmd3 += " ASSUME_SORTED=true REMOVE_DUPLICATES=true > " +  picard_log
-            cmd4 = tools.samtools + " index " + rmdup_bam 
-            pm.run([cmd3,cmd4], rmdup_bam)
-        else:
-            shutil.copy(bamfile, rmdup_folder)
-            shutil.copy(index, rmdup_folder)
-            filename = filename.rstrip(".rmdup")
-            rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
+            if not args.rmdup:
+                rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
+                Metrics_file = os.path.join(rmdup_folder, filename + "_picard_metrics_bam.txt")
+                picard_log = os.path.join(rmdup_folder, filename + "_picard_metrics_log.txt")
+                cmd3 =  tools.picard + " MarkDuplicates "  + " INPUT=" + bamfile + " OUTPUT="
+                cmd3 += rmdup_bam + " METRICS_FILE=" + Metrics_file + " VALIDATION_STRINGENCY=LENIENT"
+                cmd3 += " ASSUME_SORTED=true REMOVE_DUPLICATES=true > " +  picard_log
+                cmd4 = tools.samtools + " index " + rmdup_bam 
+                pm.run([cmd3,cmd4], rmdup_bam)
+            else:
+                shutil.copy(bamfile, rmdup_folder)
+                shutil.copy(index, rmdup_folder)
+                filename = filename.rstrip(".rmdup")
+                rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
 
-        # shift bam file 
-        shift_bed = os.path.join(rmdup_folder ,  filename + ".rmdup.bed")
-        cmd = tools.bam2bed_shift + " " +  rmdup_bam 
-        pm.run(cmd,shift_bed)
+            # shift bam file 
+            shift_bed = os.path.join(rmdup_folder ,  filename + ".rmdup.bed")
+            cmd = tools.bam2bed_shift + " " +  rmdup_bam 
+            pm.run(cmd,shift_bed)
 
-        peak_file= os.path.join(Peak_folder ,  filename + "_peaks.narrowPeak")
-        cmd = tools.macs2 + " callpeak "
-        cmd += " -t  " + shift_bed 
-        cmd += " -f BED " 
-        cmd += " -g "  +  str(args.genomeS)
-        cmd +=  " --outdir " + Peak_folder +  " -n " + filename 
-        cmd += "  -q " + str(param.macs2.q)
-        cmd +=  " --shift " + str(param.macs2.shift) + " --nomodel "  
-        pm.run(cmd, peak_file)
+            peak_file= os.path.join(Peak_folder ,  filename + "_peaks.narrowPeak")
+            cmd = tools.macs2 + " callpeak "
+            cmd += " -t  " + shift_bed 
+            cmd += " -f BED " 
+            cmd += " -g "  +  str(args.genomeS)
+            cmd +=  " --outdir " + Peak_folder +  " -n " + filename 
+            cmd += "  -q " + str(param.macs2.q)
+            cmd +=  " --shift " + str(param.macs2.shift) + " --nomodel "  
+            pm.run(cmd, peak_file)
+            
+else:
+    shutil.copy(args.input[0], Peak_folder)
 
 merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
 cmd = tools.mergePeaks + " MergePeakID "

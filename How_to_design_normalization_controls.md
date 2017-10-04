@@ -16,7 +16,7 @@ Make sure package depedencies are either in the `$PATH` variable or hardcoded in
 
 ## Running the pipeline
 
-See example command in [norm_peaks.sh](norm_peaks.sh) or run it with:
+See example command in [norm_peaks.sh](norm_peaks.sh):
 
 ```
 ./norm_peaks.sh
@@ -50,7 +50,7 @@ Enter the ATACPrimerTool directory
 cd ATACPrimerTool/
 ```
 
-An example command with default arguments is available in [norm_peaks.sh](norm_peaks.sh).  You can either run this command directly using
+An example command with default arguments is available in [norm_peaks.sh](norm_peaks.sh).  You can run this command directly once bam files have been downloaded from ENCODE using
 
 ```
 ./norm_peaks.sh

@@ -25,15 +25,14 @@ parser = pypiper.add_pypiper_args(parser, all_args = True)
 #Add any pipeline-specific arguments
 parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",type=float, help="cutoff for peak correlation")
 parser.add_argument("-cov", "--cov_cutoff", default="3", dest="cov_cutoff",type=int, help="cutoff for spanning read coverage")
-parser.add_argument("-plot", "--return_plot", default="FALSE", dest="return_plot",type=str, help="return plot of window correlations")
 parser.add_argument("-window", "--window_size", default="100", dest="window_size",type=int, help="window size")
 parser.add_argument("-overlap", "--percent_overlap", default="0.9", dest="percent_overlap",type=float, help="percent of fragment overlap")
-parser.add_argument("-seq", "--return_seq", default="true", dest="return_seq", type=bool, help="return seqeuence of qPCR regions")
+parser.add_argument("-seq", "--return_seq", action="store_true", default=False, dest="return_seq", help="return seqeuence of qPCR regions")
 args = parser.parse_args()
 
 # Initialize
 outfolder = os.path.abspath(os.path.join(args.output_parent, args.sample_name))
-pm = pypiper.PipelineManager(name = "ATACqPCR", outfolder = outfolder, args = args)
+pm = pypiper.PipelineManager(name = "ATACPrimerTool", outfolder = outfolder, args = args)
 ngstk = pypiper.NGSTk(pm=pm) #need??
 
 #cores??
@@ -167,8 +166,6 @@ for filename in sorted(os.listdir(filtered_bams)):
         
 pm.clean_add(temp_o)
 pm.clean_add(temp_f9)     
-pm.clean_add(combined_o)
-pm.clean_add(combined_f9) 
 combined_read_counts = os.path.join(param.outfolder, "read_counts.txt") 
 if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
     for filename in os.listdir(filtered_bams):
@@ -178,10 +175,10 @@ if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
 
 qPCR_regions = os.path.join(param.outfolder, str(os.path.basename(args.input2[0])).rstrip(".bed") + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
-cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " " + str(args.return_plot) + " " 
+cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " "
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)
 pm.run(cmd, lock_name = "qPCR_regions")
-
+    
 if args.return_seq:
     qPCR_regions_seq = str(qPCR_regions).rstrip(".bed") + "_seq.bed"
     cmd = tools.bedtools + " getfasta -fi "
