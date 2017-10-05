@@ -112,7 +112,7 @@ count = 0
 for bamfile in sorted(os.listdir(rmdup_folder)):
     if bamfile.endswith(".bam"):
         filename = bamfile.rstrip(".bam")
-        bamfile=os.path.join(args.input[0], bamfile)
+        bamfile=os.path.join(rmdup_folder, bamfile)
     
         index = str(bamfile) +".bai"
         cmd = tools.samtools + " index " + bamfile

@@ -77,13 +77,16 @@ The following parameters can be modified:
 
 `-window (--window_size)`: window size in basepairs into which peaks are binned. Default is 100.
 
+`-overlap (--percent_overlap)`: percentage by which spanning fragments should overlap window to be counted. Default is 0.9.
+
 `-cov (--coverage)`: cutoff for average spanning fragment coverage.  Default is 3 (or ~500 copies/1ng input library).
 
 `-cor (--correlation)`: cutoff for correlation between number of spanning fragments in window and total peak height across samples.  Default is 0.8.
 
-`-seq (--return_seq)`: whether DNA sequence of optimal primer regions should be returned. Requires reference genome fasta in genomes directory.  Default is false. 
+`-seq (--return_seq)`: used if DNA sequence of optimal primer regions should be returned. Requires reference genome fasta in genomes directory.  Default is false. 
 
-`-plot (--return_plot)`: whether plot of window correlations across peaks should be returned. Default is false.
+`-counts (--read_counts)`: used if read counts for orginial bam files have already been determined and are present in bam file folder.  Used if input bam files have been filtered, as in test data set.  See [test_data/ENCODE_bams](test_data/ENCODE_bams) for examples.  Default is false.
+
 
 Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend to give less accurate results with ATAC-qPCR.
 
