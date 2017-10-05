@@ -82,8 +82,7 @@ Modification of the correlation and coverage parameters can be useful to narrow 
 Below is an example for running APT to design primers for the MDM2 and DDIT3 promoters.  The input files are included in the [test_data](test_data/) 
 directory and bam files have been pre-filtered for the regions of interest. The output generated in included in the [test_out/APT_test](test_out/APT_test) directory.
 
-Before starting, make sure pypiper and all dependencies have been installed, as well as the appropriate reference genomes if DNA sequence is required
-in addition to coordinates.  
+Before starting, make sure pypiper and all dependencies have been installed, and that the appropriate reference genomes have been downloaded if DNA sequence is required in addition to coordinates.  
 
 Modify [ATACqPCR.yaml](pipelines/ATACqPCR.yaml) to include paths of required dependencies if they are not the your `$PATH` variable.
 
