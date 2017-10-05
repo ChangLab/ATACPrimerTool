@@ -85,7 +85,7 @@ The following parameters can be modified:
 
 `-seq (--return_seq)`: used if DNA sequence of optimal primer regions should be returned. Requires reference genome fasta in genomes directory.  Default is false. 
 
-`-counts (--read_counts)`: used if read counts for orginial bam files have already been determined and are present in bam file folder.  Used if input bam files have been filtered, as in test data set.  See [test_data/ENCODE_bams](test_data/ENCODE_bams) for examples.  Default is false.
+`-counts (--read_counts)`: used if read counts for orginial bam files have already been determined and are present in bam file folder.  Useful if input bam files have been filtered, as in test data set.  See [test_data/ENCODE_bams](test_data/ENCODE_bams) for examples.  Default is false.
 
 
 Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend to give less accurate results with ATAC-qPCR.
