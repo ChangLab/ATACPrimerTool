@@ -10,12 +10,10 @@ Updated by : kdriest@stanford.edu
 
 ## Installing
 
-This repo uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline. You can do a user-specific install 
-of both like this:
+APT uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline. You can do a user-specific install like this:
 
 ```
 pip install --user https://github.com/epigen/pypiper/zipball/master
-pip install --user https://github.com/epigen/looper/zipball/master
 ```
 ## Configuring yaml files
 
@@ -44,30 +42,19 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 ## Reference genomes
 
 Chromosome sizes for the following reference genomes are available in the [genomes](genomes/) directory: hg19, hg38, mm9, mm10.  
+
 If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to 
 [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  fetchChromSizes is also available in bioconda as ucsc-fetchchromsizes.
 
-In order to output the DNA sequence of optimal primer regions, you must also have 
-downloaded the reference genome fasta file. Reference genomes can be downloaded in 2bit format using the following links:
-
-hg19: [http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit)
-
-hg38: [http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit)
-
-mm9: [http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/mm9.2bit)
-
-mm10: [http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit](http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit)
-
-Reference genomes can be converted to fasta format using UCSC's twoBitToFa [(available here)](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa), 
-which is also available in bioconda as ucsc-twobittofa.
+In order to output the DNA sequence of optimal primer regions, the reference genome fasta file must also be available in the genomes directory referenced by [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  
 
 ## Input files
 
-APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files can be downloaded from public repositories such as ENCODE or GEO or user-generated to match your cell type of interest.  A list of ATAC-seq datasets from a variety of both human and mouse tissue available from ENCODE is supplied in the APT manuscript.  
+APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files can be downloaded from public repositories such as ENCODE or GEO or user-generated to match your cell type of interest.  A list of ATAC-seq datasets from a variety of both human and mouse tissue available from ENCODE is supplied in the APT manuscript.  APT requires the following inputs:
 
-Bam files must be from paired-end sequencing and sorted by position.  
+`-I (--input)`: path to directory containing input ATAC-seq bam files. Bam files must be from paired-end sequencing and sorted by position.  
 
-APT also requires the coordinates of the peaks for which primers should be designed.  Coordinates should be supplied in bed file format and match the reference genome to which the bam files were mapped.
+`-I2 (--input2)`: bed file containing coordinates of peaks for which primers should be designed.  Coordinates should match the reference genome to which the bam files were mapped.
 
 ## APT Parameters
 
