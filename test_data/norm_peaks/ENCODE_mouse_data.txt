@@ -1,0 +1,11 @@
+Experiment name	File name	Source
+ENCSR826JKN	"ENCFF217CGB, ENCFF515NYO"	activated regulatory T-cells primary cell male adult (4 months)
+ENCSR836PUC	"ENCFF130WMA, ENCFF224JRS"	forebrain tissue mixed sex embryo (16.5 days)
+ENCSR993QKC	"ENCFF787SKI, ENCFF031FPB"	inflammation-experienced regulatory T-cells primary cell male adult (6 months)
+ENCSR961SMM	"ENCFF248NDD, ENCFF262ECE"	intestine tissue mixed sex embryo (15.5 days)
+ENCSR732OTZ	"ENCFF979TLW, ENCFF525KUY"	kidney tissue mixed sex embryo (16.5 days)
+ENCSR609OHJ	"ENCFF146ZCO, ENCFF109LQF"	liver tissue mixed sex postnatal (0 days)
+ENCSR102NGD	"ENCFF203DOC, ENCFF823PTD"	lung tissue mixed sex postnatal (0 days)
+ENCSR983JWA	"ENCFF800LDK, ENCFF126AGJ"	neural tube tissue mixed sex embryo (15.5 days)
+ENCSR597BGP	"ENCFF201HYP, ENCFF338CVG"	stomach tissue mixed sex postnatal (0 days)
+ENCSR724UJS	"ENCFF557JSA, ENCFF053CGD"	regulatory T primary cell male adult (4 months)
