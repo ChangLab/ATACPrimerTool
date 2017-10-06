@@ -24,7 +24,7 @@ parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",
 parser.add_argument("-cov", "--cov_cutoff", default="3", dest="cov_cutoff",type=int, help="cutoff for spanning read coverage")
 parser.add_argument("-window", "--window_size", default="100", dest="window_size",type=int, help="window size")
 parser.add_argument("-overlap", "--percent_overlap", default="0.9", dest="percent_overlap",type=float, help="percent of fragment overlap")
-parser.add_argument("-seq", "--return_seq", action="store_true", default=False, dest="return_seq", help="return seqeuence of qPCR regions")
+parser.add_argument("-fasta", "--genome_fasta", default=False, dest="genome_fasta", help="path to reference genome fasta")
 parser.add_argument("-bedpe", "--bedpe_input", action="store_true", default=False, dest="bedpe_input", help="input files are in bedpe format")
 parser.add_argument("-counts", "--read_counts", action="store_true", default=False, dest="read_counts", help="pre-generated read counts files in bam file directory")
 args = parser.parse_args()
@@ -43,9 +43,6 @@ res = pm.config.resources
 res.chrom_sizes = os.path.join(res.genomes, args.genome_assembly + ".chromSizes")
 cmd = tools.fetchChromSizes + " " + args.genome_assembly + " > " + res.chrom_sizes
 pm.run(cmd, res.chrom_sizes)
-
-if args.return_seq:
-    res.fasta = os.path.join(res.genomes, args.genome_assembly + "_chr.fa")
 
 output = outfolder
 param.outfolder = outfolder
@@ -222,10 +219,10 @@ cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_region
 pm.run(cmd, lock_name = "qPCR_regions")
 
 #output DNA sequence of regions
-if args.return_seq:
+if args.genome_fasta:
     qPCR_regions_seq = os.path.splitext(str(qPCR_regions))[0] + "_seq.bed"
     cmd = tools.bedtools + " getfasta -fi "
-    cmd += str(res.fasta) + " -bed " + str(qPCR_regions)
+    cmd += str(args.genome_fasta) + " -bed " + str(qPCR_regions)
     cmd += " -name -bedOut > " + str(qPCR_regions_seq)
     pm.run(cmd, lock_name = "qPCR_regions_seq")
 
