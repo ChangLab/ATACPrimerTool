@@ -201,7 +201,10 @@ for filename in sorted(os.listdir(filtered_inputs)):
             pm.run([cmd1, cmd2, cmd3, cmd4, cmd5, cmd6], lock_name="coverage2")
         
 pm.clean_add(temp_o)
-pm.clean_add(temp_f9)     
+pm.clean_add(temp_f9)
+pm.clean_add(combined_o)
+pm.clean_add(combined_f9)
+     
 combined_read_counts = os.path.join(param.outfolder, "read_counts.txt") 
 if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
     if args.read_counts:
