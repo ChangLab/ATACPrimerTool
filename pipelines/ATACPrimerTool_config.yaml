@@ -3,13 +3,13 @@
 tools:
 
 # basic tools 
-  Rscript: Rscript
+  Rscript: Rscript #if not in path, use /pathto/Rscript
   # absolute paths to required tools
 
 # public tools 
-  samtools:  samtools
-  bedtools: bedtools
-  fetchChromSizes: fetchChromSizes
+  samtools:  samtools #if not in path, use /pathto/samtools
+  bedtools: bedtools #if not in path, use /pathto/bedtools
+  fetchChromSizes: fetchChromSizes #if not in path, use /pathto/fetchChromSizes
 # private tools
   make_window_bed: <APTdir>/scripts/make_window_bed.R
   find_qPCR_regions: <APTdir>/scripts/find_qPCR_regions.R

@@ -3,12 +3,12 @@
 tools:
 
 # basic tools 
-  Rscript: Rscript
+  Rscript: Rscript #if not in path, use /pathto/Rscript
 # public tools 
-  samtools:  samtools
-  bedtools: bedtools
-  macs2: macs2
-  annotate_peaks: annotatePeaks.pl
+  samtools:  samtools #if not in path, use /pathto/samtools
+  bedtools: bedtools #if not in path, use /pathto/bedtools
+  macs2: macs2 #if not in path, use /pathto/macs2
+  annotate_peaks: annotatePeaks.pl #if not in path, use /pathto/annotatePeaks.pl
 # private tools
   bam2bed_shift: <APTdir>/scripts/bam2bed_shift.pl
   norm_counts: <APTdir>/scripts/normpeaks.R
