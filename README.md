@@ -15,6 +15,13 @@ APT uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline. You c
 ```
 pip install --user https://github.com/epigen/pypiper/zipball/master
 ```
+
+Clone the APT repository by running the following command:
+
+```
+git clone https://github.com/katieyost/ATACPrimerTool.git
+```
+
 ## Configuring yaml files
 
 Enter the ATACPrimerTool directory:
