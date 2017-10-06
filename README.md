@@ -119,7 +119,7 @@ python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPr
 
 Results will be in the located in the `APT_practice/APT_test` directory.
 
-**Note:** If the pipeline fails, rerun it will the additional parameter `-R` or `--recover` to overwrite lock files.  
+**Note:** If the pipeline fails, rerun it will the additional parameter `-R` or `--recover` to overwrite lock files.  Outputs that have already been correctly produced will not be regenerated.
 
 ## Designing normalization controls
 
