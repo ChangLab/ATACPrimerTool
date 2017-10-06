@@ -31,7 +31,7 @@ where `path/to/ATACPrimerTool` is the path to the ATACPrimerTool directory.
  
 ## Package dependencies
 
-This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
+This pipeline requires the following packages: R, samtools and bedtools (>= version 2.24.0). These packages must be either 
 be in your `$PATH` or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml). 
 
 ## Running the pipeline
