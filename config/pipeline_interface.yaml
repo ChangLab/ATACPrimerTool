@@ -1,4 +1,4 @@
-ATACqPCR.py:
+ATACPrimerTool.py:
   name: ATACqPCR
   looper_args: False
   arguments:
@@ -8,9 +8,10 @@ ATACqPCR.py:
     "--input2": peak_file
     "--input3": corr_cutoff
     "--input4": cov_cutoff
-    "--input5": return_plot
-    "--input6": window_size
-    "--input7": percent_overlap 
+    "--input5": percent_overlap
+    "--input6": return_seq
+    "--input7": bedpe_input
+    "--input8": read_counts 
   resources:
     default:
       file_size: "0"

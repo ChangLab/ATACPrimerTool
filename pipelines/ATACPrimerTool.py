@@ -18,9 +18,6 @@ from datetime import datetime
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
 parser = pypiper.add_pypiper_args(parser, all_args = True)
-#parser = pypiper.add_pypiper_args(parser, groups = ['all'])  # future version
-
-#are only two inputs expected?
 
 #Add any pipeline-specific arguments
 parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",type=float, help="cutoff for peak correlation")
@@ -35,9 +32,7 @@ args = parser.parse_args()
 # Initialize
 outfolder = os.path.abspath(os.path.join(args.output_parent, args.sample_name))
 pm = pypiper.PipelineManager(name = "ATACPrimerTool", outfolder = outfolder, args = args)
-ngstk = pypiper.NGSTk(pm=pm) #need??
-
-#cores??
+ngstk = pypiper.NGSTk(pm=pm)
 
 # Convenience alias 
 tools = pm.config.tools
@@ -61,14 +56,14 @@ print("Peak bed file: " + args.input2[0])
 
 pm.report_result("Genome", args.genome_assembly)
 
-# ATACqPCR pipeline
-
+#split peaks into overlapping windows
 qPCR_windows = os.path.join(param.outfolder, "qPCR_windows.bed")
 cmd = tools.Rscript + " " + tools.make_window_bed + " " + str(args.input2[0]) + " " + str(args.window_size) + " " + str(qPCR_windows)
 pm.run(cmd, qPCR_windows)
 
 pm.clean_add(qPCR_windows)
 
+#filter bam files for reads within 2kb of peaks
 ext_peak = os.path.join(param.outfolder, "ext_peak.bed")
 cmd = tools.bedtools + " slop "
 cmd += " -i " + str(args.input2[0]) 
@@ -148,7 +143,7 @@ else:
             pm.run(cmd, includeinsert)
             pm.clean_add(includeinsert)
 
-
+#counts reads in peaks and number of spanning fragments per window
 combined_o = os.path.join(param.outfolder, "combined.o.coverage")
 combined_f9 = os.path.join(param.outfolder, "combined.f9.coverage")
 for filename in sorted(os.listdir(filtered_inputs)):
@@ -204,7 +199,8 @@ pm.clean_add(temp_o)
 pm.clean_add(temp_f9)
 pm.clean_add(combined_o)
 pm.clean_add(combined_f9)
-     
+
+#combine read counts
 combined_read_counts = os.path.join(param.outfolder, "read_counts.txt") 
 if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
     if args.read_counts:
@@ -218,12 +214,14 @@ if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
                 cmd = "cat " + os.path.join(filtered_bams, filename) + " >> " + combined_read_counts
                 pm.run(cmd, lock_name = "read_counts") 
 
+#determine optimal qPCR regions
 qPCR_regions = os.path.join(param.outfolder, os.path.splitext(str(os.path.basename(args.input2[0])))[0] + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
 cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " "
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)
 pm.run(cmd, lock_name = "qPCR_regions")
-    
+
+#output DNA sequence of regions
 if args.return_seq:
     qPCR_regions_seq = os.path.splitext(str(qPCR_regions))[0] + "_seq.bed"
     cmd = tools.bedtools + " getfasta -fi "
