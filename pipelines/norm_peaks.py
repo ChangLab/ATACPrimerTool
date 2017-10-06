@@ -135,7 +135,7 @@ if not os.path.exists(Merged_counts):
                 cmd1 += " | cut -f 5 > " 
                 cmd1 += temp
         
-                cmd2 = "paste " + Merged_counts + " "+temp + " > " + Merged_temp
+                cmd2 = "paste " + Merged_counts_temp + " "+temp + " > " + Merged_temp
         
                 cmd3 = "mv " + Merged_temp + " "+ Merged_counts_temp
         
