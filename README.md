@@ -57,7 +57,7 @@ Chromosome sizes for the following reference genomes are available in the [genom
 If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to 
 [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml).  fetchChromSizes is also available in bioconda as ucsc-fetchchromsizes.
 
-In order to output the DNA sequence of optimal primer regions, the reference genome fasta file must also be available in the genomes directory referenced by [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml).  
+In order to output the DNA sequence of optimal primer regions, the reference genome fasta file must also be downloaded and the path passed as an argument.  
 
 ## Input files
 
@@ -81,7 +81,7 @@ The following parameters can be modified:
 
 `-cor (--correlation)`: cutoff for correlation between number of spanning fragments in window and total peak height across samples.  Default is 0.8.
 
-`-seq (--return_seq)`: used if DNA sequence of optimal primer regions should be returned. Requires reference genome fasta in genomes directory.  Default is false. 
+`-fasta (--genome_fasta)`: location of reference genome fasta file if DNA sequence of optimal primer regions should be returned.  Default is false. 
 
 `-counts (--read_counts)`: used if read counts for orginial bam files have already been determined and are present in bam file folder.  Useful if input bam files have been filtered, as in test data set.  See [test_data/ENCODE_bams](test_data/ENCODE_bams) for examples.  Default is false.
 
