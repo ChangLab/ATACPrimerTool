@@ -10,12 +10,12 @@ tools:
   macs2: macs2
   annotate_peaks: annotatePeaks.pl
 # private tools
-  bam2bed_shift: /storage/kdriest/ATACPrimerTool/scripts/bam2bed_shift.pl
-  norm_counts: /storage/kdriest/ATACPrimerTool/scripts/normpeaks.R
-  mergePeaks: /storage/kdriest/ATACPrimerTool/scripts/mergePeaks.pl
+  bam2bed_shift: <APTdir>/scripts/bam2bed_shift.pl
+  norm_counts: <APTdir>/scripts/normpeaks.R
+  mergePeaks: <APTdir>/scripts/mergePeaks.pl
 #User configure
 resources:
-  genomes: /storage/kdriest/ATACPrimerTool/genomes/
+  genomes: <APTdir>/genomes/
 
 parameters:
   # parameters passed to bioinformatic tools, subclassed by tool

@@ -2008,3 +2008,806 @@ Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed
 * Pipeline completed at:  (10-05 16:32:09) elapsed:0:00:50 _TIME_
 
 Pypiper terminating spawned child process 52468
+----------------------------------------
+##### [Pipeline run code and environment:]
+*              Command:  `pipelines/ATACPrimerTool.py -O test_out -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -seq -counts`
+*         Compute host:  changrila2.stanford.edu
+*          Working dir:  /storage/kdriest/ATACPrimerTool
+*            Outfolder:  /storage/kdriest/ATACPrimerTool/test_out/APT_test/
+*  Pipeline started at:   (10-05 17:09:57) elapsed:0:00:00 _TIME_
+
+##### [Version log:]
+*       Python version:  2.7.5
+*          Pypiper dir:  `/storage/kdriest/.local/lib/python2.7/site-packages/pypiper`
+*      Pypiper version:  0.5.0
+*         Pipeline dir:  `/storage/kdriest/ATACPrimerTool/pipelines`
+*     Pipeline version:  None
+*        Pipeline hash:  812ae1fd8951559d881e2565163ae3187133e1a4
+*      Pipeline branch:  * master
+*        Pipeline date:  2017-10-05 16:35:17 -0700
+*        Pipeline diff:  7 files changed, 12 insertions(+), 369 deletions(-)
+
+##### [Arguments passed to pipeline:]
+*             `input2`:  `['test_data/test_peaks.bed']`
+*        `read_counts`:  `True`
+*        `window_size`:  `100`
+*       `manual_clean`:  `False`
+*              `input`:  `['test_data/ENCODE_bams']`
+*                `mem`:  `4000`
+*        `bedpe_input`:  `False`
+*        `sample_name`:  `APT_test`
+*        `config_file`:  `ATACPrimerTool.yaml`
+*      `output_parent`:  `test_out`
+*   `single_or_paired`:  `single`
+*        `corr_cutoff`:  `0.8`
+*    `genome_assembly`:  `hg38`
+*    `percent_overlap`:  `0.9`
+*              `cores`:  `1`
+*              `fresh`:  `False`
+*            `recover`:  `False`
+*         `return_seq`:  `True`
+*       `force_follow`:  `False`
+*         `cov_cutoff`:  `3`
+
+----------------------------------------
+
+
+Change status from initializing to running
+
+Target exists: `/storage/kdriest/ATACPrimerTool/genomes/hg38.chromSizes`
+Bam file directory: test_data/ENCODE_bams
+Peak bed file: test_data/test_peaks.bed
+> `Genome`	hg38	ATACPrimerTool	_RES_
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed`
+> `Rscript /storage/kdriest/ATACPrimerTool/scripts/make_window_bed.R test_data/test_peaks.bed 100 /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed`
+
+<pre>
+</pre>
+Process 54494 returned: (0). Elapsed: 0:00:06. Peak memory: (Process: 0.033GB; Pipeline: 0.0GB)
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/ext_peak.bed`
+> `bedtools slop  -i test_data/test_peaks.bed -g /storage/kdriest/ATACPrimerTool/genomes/hg38.chromSizes -b 2000 | sort -k1,1 -k2,2n - > /storage/kdriest/ATACPrimerTool/test_out/APT_test/ext_peak.bed`
+
+<pre>
+</pre>
+Process 54584 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/adipose_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54587 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/artery_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54592 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/breast_epithelium_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54597 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/breast_epithelium_3.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54602 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/breast_epithelium_4.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54607 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/colon_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54612 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/colon_2.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54617 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/esophagus_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54622 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/liver_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54627 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/nerve_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54632 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/ovary_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54637 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/prostate_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54642 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/spleen_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54647 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/stomach_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54652 returned: (0). Elapsed: 0:00:00.
+
+Target exists: `test_data/ENCODE_bams/testis_1.test.bam.bai`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test_read_counts.txt`
+
+Target exists: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.filter.bam`
+
+Target to produce: `/storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.includeinsert.bed`
+> `samtools sort -n /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.filter.bam | samtools fixmate - - | bedtools bamtobed -i - -bedpe | cut -f 1,2,6 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.includeinsert.bed`
+
+<pre>
+</pre>
+Process 54657 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.filter.bam | cut -f 1,2,3,4,5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54662 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.includeinsert.bed -f 0.9 | cut -f 1,2,3,4,5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54665 returned: (0). Elapsed: 0:00:00.
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54668 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54671 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54674 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54676 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54677 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54679 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54680 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54683 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54686 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54688 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54689 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54691 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54692 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54695 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54698 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54700 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54701 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54703 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54704 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54707 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54710 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54712 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54713 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54715 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54716 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54719 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54722 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54724 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54725 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54727 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54728 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54731 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54734 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54736 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54737 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54739 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54740 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54743 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54746 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54748 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54749 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54751 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54752 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54755 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54758 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54760 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54761 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54763 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54764 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54767 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54770 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54772 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54773 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54775 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54776 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54779 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54782 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54784 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54785 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54787 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54788 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54791 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54794 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54796 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54797 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54799 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54800 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54803 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54806 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54808 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54809 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54811 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54812 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54815 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54818 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54820 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54821 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54823 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.filter.bam | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+<pre>
+</pre>
+Process 54824 returned: (0). Elapsed: 0:00:00.
+> `bedtools coverage -a /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed -b /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.includeinsert.bed -f 0.9 | cut -f 5 > /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+
+<pre>
+</pre>
+Process 54827 returned: (0). Elapsed: 0:00:00.
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed`
+
+<pre>
+</pre>
+Process 54830 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.o.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage`
+
+<pre>
+</pre>
+Process 54832 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+> `paste /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed > /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed`
+
+<pre>
+</pre>
+Process 54833 returned: (0). Elapsed: 0:00:00.
+> `mv /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.temp.f9.bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage`
+
+<pre>
+</pre>
+Process 54835 returned: (0). Elapsed: 0:00:00. Peak memory: (Process: 0.0GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `Rscript /storage/kdriest/ATACPrimerTool/scripts/find_qPCR_regions.R /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.o.coverage /storage/kdriest/ATACPrimerTool/test_out/APT_test/combined.f9.coverage 0.8 3 /storage/kdriest/ATACPrimerTool/test_out/APT_test/read_counts.txt /storage/kdriest/ATACPrimerTool/test_out/APT_test /storage/kdriest/ATACPrimerTool/test_out/APT_test/test_peaks_qPCR_regions_corr0.8_cov3.bed`
+
+<pre>
+</pre>
+Process 54836 returned: (0). Elapsed: 0:00:06. Peak memory: (Process: 0.031GB; Pipeline: 0.033GB)
+
+Targetless command, running...
+> `bedtools getfasta -fi /storage/kdriest/ATACPrimerTool/genomes/hg38_chr.fa -bed /storage/kdriest/ATACPrimerTool/test_out/APT_test/test_peaks_qPCR_regions_corr0.8_cov3.bed -name -bedOut > /storage/kdriest/ATACPrimerTool/test_out/APT_test/test_peaks_qPCR_regions_corr0.8_cov3_seq.bed`
+
+<pre>
+</pre>
+Process 54845 returned: (0). Elapsed: 0:00:00.
+
+Change status from running to completed
+
+Cleaning up flagged intermediate files...
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/qPCR_windows.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/ext_peak.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/ext_peak.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/adipose_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/artery_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_3.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/breast_epithelium_4.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/colon_2.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/esophagus_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/liver_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/nerve_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/ovary_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/prostate_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/spleen_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/stomach_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.includeinsert.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/filteredinputs/testis_1.test.includeinsert.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.o.bed`
+
+Removing glob: /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed
+`rm /storage/kdriest/ATACPrimerTool/test_out/APT_test/temp.f9.bed`
+> `Time`	0:00:37	ATACPrimerTool	_RES_
+> `Success`	10-05-17:10:34	ATACPrimerTool	_RES_
+
+##### [Epilogue:]
+*   Total elapsed time:  0:00:37
+*     Peak memory used:  0.03 GB
+* Pipeline completed at:  (10-05 17:10:34) elapsed:0:00:37 _TIME_
+
+Pypiper terminating spawned child process 54480

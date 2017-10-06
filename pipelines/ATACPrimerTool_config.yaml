@@ -8,16 +8,16 @@ tools:
 
 # public tools 
   samtools:  samtools
-  bedtools: bedtools #version 2
+  bedtools: bedtools
   fetchChromSizes: fetchChromSizes
 # private tools
-  make_window_bed: <ATACqPCRdir>/scripts/make_window_bed.R
-  find_qPCR_regions: <ATACqPCRdir>/scripts/find_qPCR_regions.R
+  make_window_bed: <APTdir>/scripts/make_window_bed.R
+  find_qPCR_regions: <APTdir>/scripts/find_qPCR_regions.R
   
 
 #User configure 
 resources:
-  genomes: <ATACqPCRdir>/genomes/      
+  genomes: <APTdir>/genomes/      
 
 parameters:
   # parameters passed to bioinformatic tools, subclassed by tool

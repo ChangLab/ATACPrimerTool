@@ -17,11 +17,17 @@ pip install --user https://github.com/epigen/pypiper/zipball/master
 ```
 ## Configuring yaml files
 
-Run the command 
+Enter the ATACPrimerTool directory:
+
 ```
-python path/to/ATACPrimerTool/pipelines/yaml_config.py path/to/ATACPrimerTool
+cd ATACPrimerTool/
 ```
- to configure yaml files with user-specific paths.
+
+And run the following command to configure yaml files with user-specific paths:
+```
+python /pipelines/yaml_config.py path/to/ATACPrimerTool
+```
+where `path/to/ATACPrimerTool` is the path to the ATACPrimerTool directory.
  
 ## Package dependencies
 
@@ -103,7 +109,7 @@ An example APT command with default arguments is available in [cmd.sh](cmd.sh). 
 or by running
 
 ```
-python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams/ -I2 test_data/test_peaks.bed -corr 0.8 -cov 3  -window 100 -overlap 0.9 
+python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -seq -counts
 ```
 
 Results will be in the located in the `APT_practice/APT_test` directory.
