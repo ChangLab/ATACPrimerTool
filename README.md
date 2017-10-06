@@ -25,7 +25,7 @@ cd ATACPrimerTool/
 
 And run the following command to configure yaml files with user-specific paths:
 ```
-python /pipelines/yaml_config.py path/to/ATACPrimerTool
+python pipelines/yaml_config.py path/to/ATACPrimerTool
 ```
 where `path/to/ATACPrimerTool` is the path to the ATACPrimerTool directory.
  
