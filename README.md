@@ -34,7 +34,7 @@ where `path/to/ATACPrimerTool` is the path to the ATACPrimerTool directory.
 This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
 be in your `$PATH` or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml). We recommend
 using conda to manage packages if you do not have the required package dependencies.  Information on conda and the bioconda
-channel where these packages are available is located at [https://bioconda.github.io/](https://bioconda.github.io/).
+channel where these packages are available is located at [https://bioconda.github.io/](https://bioconda.github.io/).  NOTE: If using conda, pypiper needs to be run in a python2 environment.
 
 ## Running the pipeline
 

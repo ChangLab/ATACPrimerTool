@@ -1,0 +1,228 @@
+# Pipeline started at 10-03 17:46:05
+
+picard	 rmdup_bams__adipose_1.sort.rmdup.bam	0:47:35.760000	 -1
+samtools	 None	0:05:33.340000	 0.020016
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__adipose_1.sort.rmdup.bed	0:18:34.100000	 0.002316
+macs2	 peak_calling_hg38__adipose_1.sort_peaks.narrowPeak	0:15:33.700000	 1.157916
+samtools	 __storage__kdriest__ATACqPCR__ENCODE_human_data__bams__processed__adipose_1.sort.filter.bam.bai	0:00:00.250000	 1.2e-05
+# Pipeline started at 10-04 08:44:48
+
+picard	 rmdup_bams__artery_1.sort.rmdup.bam	0:25:34.490000	 -1
+samtools	 None	0:03:02.440000	 0.017252
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__artery_1.sort.rmdup.bed	0:09:33.540000	 0.00232
+macs2	 peak_calling_hg38__artery_1.sort_peaks.narrowPeak	0:11:33.700000	 0.758872
+picard	 rmdup_bams__breast_epithelium_1.sort.rmdup.bam	1:01:36.520000	 -1
+samtools	 None	0:06:33.400000	 0.021868
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__breast_epithelium_1.sort.rmdup.bed	0:17:34.040000	 0.002316
+macs2	 peak_calling_hg38__breast_epithelium_1.sort_peaks.narrowPeak	0:15:33.920000	 1.217124
+picard	 rmdup_bams__breast_epithelium_3.sort.rmdup.bam	0:46:35.630000	 -1
+samtools	 None	0:05:33.330000	 0.020752
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__breast_epithelium_3.sort.rmdup.bed	0:17:33.990000	 0.002316
+macs2	 peak_calling_hg38__breast_epithelium_3.sort_peaks.narrowPeak	0:15:33.940000	 1.25162
+picard	 rmdup_bams__breast_epithelium_4.sort.rmdup.bam	0:50:35.930000	 -1
+samtools	 None	0:05:33.330000	 0.018404
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__breast_epithelium_4.sort.rmdup.bed	0:19:34.130000	 0.002316
+macs2	 peak_calling_hg38__breast_epithelium_4.sort_peaks.narrowPeak	0:21:34.290000	 1.3783
+picard	 rmdup_bams__colon_1.sort.rmdup.bam	0:47:35.800000	 -1
+samtools	 None	0:05:33.340000	 0.020768
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__colon_1.sort.rmdup.bed	0:19:34.180000	 0.002316
+macs2	 peak_calling_hg38__colon_1.sort_peaks.narrowPeak	0:17:33.980000	 1.134228
+picard	 rmdup_bams__colon_2.sort.rmdup.bam	0:59:36.470000	 -1
+samtools	 None	0:06:33.400000	 0.021428
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__colon_2.sort.rmdup.bed	0:20:34.160000	 0.002312
+macs2	 peak_calling_hg38__colon_2.sort_peaks.narrowPeak	0:16:33.980000	 1.420972
+picard	 rmdup_bams__esophagus_1.sort.rmdup.bam	0:25:34.530000	 -1
+samtools	 None	0:02:22.150000	 0.017568
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__esophagus_1.sort.rmdup.bed	0:07:33.460000	 0.00232
+macs2	 peak_calling_hg38__esophagus_1.sort_peaks.narrowPeak	0:06:33.400000	 0.615752
+picard	 rmdup_bams__liver_1.sort.rmdup.bam	0:39:35.120000	 -1
+samtools	 None	0:03:47.740000	 0.020296
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__liver_1.sort.rmdup.bed	0:11:33.710000	 0.00232
+macs2	 peak_calling_hg38__liver_1.sort_peaks.narrowPeak	0:11:33.700000	 0.858216
+picard	 rmdup_bams__nerve_1.sort.rmdup.bam	0:24:34.290000	 -1
+samtools	 None	0:03:02.440000	 0.019576
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__nerve_1.sort.rmdup.bed	0:08:33.510000	 0.00232
+macs2	 peak_calling_hg38__nerve_1.sort_peaks.narrowPeak	0:07:33.410000	 0.814004
+picard	 rmdup_bams__ovary_1.sort.rmdup.bam	0:34:34.990000	 -1
+samtools	 None	0:03:47.740000	 0.01814
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__ovary_1.sort.rmdup.bed	0:13:33.810000	 0.00232
+macs2	 peak_calling_hg38__ovary_1.sort_peaks.narrowPeak	0:11:33.710000	 1.088272
+picard	 rmdup_bams__prostate_1.sort.rmdup.bam	0:17:34.040000	 -1
+samtools	 None	0:02:22.150000	 0.019252
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__prostate_1.sort.rmdup.bed	0:05:33.340000	 0.002316
+macs2	 peak_calling_hg38__prostate_1.sort_peaks.narrowPeak	0:04:38.030000	 0.449428
+picard	 rmdup_bams__spleen_1.sort.rmdup.bam	0:45:35.940000	 -1
+samtools	 None	0:04:38.040000	 0.020448
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__spleen_1.sort.rmdup.bed	0:15:33.930000	 0.002316
+macs2	 peak_calling_hg38__spleen_1.sort_peaks.narrowPeak	0:13:33.750000	 1.124488
+picard	 rmdup_bams__stomach_1.sort.rmdup.bam	0:41:35.480000	 -1
+samtools	 None	0:04:38.040000	 0.019624
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__stomach_1.sort.rmdup.bed	0:16:33.980000	 0.002316
+macs2	 peak_calling_hg38__stomach_1.sort_peaks.narrowPeak	0:12:33.770000	 1.170192
+picard	 rmdup_bams__testis_1.sort.rmdup.bam	0:26:34.550000	 -1
+samtools	 None	0:03:47.740000	 0.020732
+/seq/ATAC-seq/Code/bam2bed_shift.pl	 rmdup_bams__testis_1.sort.rmdup.bed	0:10:33.630000	 0.00232
+macs2	 peak_calling_hg38__testis_1.sort_peaks.narrowPeak	0:09:33.590000	 0.837296
+/seq/scripts/mergePeaks.pl	 MergedPeaks.bed	0:00:15.770000	 -1
+samtools	 __storage__kdriest__ATACqPCR__ENCODE_human_data__bams__processed__adipose_1.sort.rmdup.bam.bai	0:00:00.250000	 0.00016
+# Pipeline started at 10-05 09:16:23
+
+samtools	 __storage__kdriest__ATACqPCR__ENCODE_human_data__bams__processed__adipose_1.sort.sorted.bam.bai	0:00:00.250000	 1.2e-05
+# Pipeline started at 10-05 09:17:58
+
+bedtools	 coverage	0:18:34.120000	 -1
+bedtools	 coverage2	0:07:33.450000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000144
+bedtools	 coverage2	0:14:33.870000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000228
+bedtools	 coverage2	0:18:34.120000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000268
+bedtools	 coverage2	0:17:33.980000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000188
+bedtools	 coverage2	0:14:33.880000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 1.2e-05
+bedtools	 coverage2	0:18:34.050000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000172
+bedtools	 coverage2	0:06:33.400000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:10:33.580000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000516
+bedtools	 coverage2	0:08:33.520000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000516
+bedtools	 coverage2	0:12:33.760000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00022
+bedtools	 coverage2	0:05:33.340000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000172
+bedtools	 coverage2	0:17:34.060000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:15:33.890000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00052
+bedtools	 coverage2	0:11:33.700000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+Rscript	 norm_peaks.bed	0:00:05.560000	 0.001536
+# Pipeline started at 10-05 13:21:23
+
+bedtools	 coverage	0:16:33.940000	 -1
+bedtools	 coverage2	0:09:33.550000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000184
+bedtools	 coverage2	0:18:34.090000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00022
+bedtools	 coverage2	0:17:34.060000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:17:34.060000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00052
+bedtools	 coverage2	0:14:33.710000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000244
+bedtools	 coverage2	0:18:34.120000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000784
+bedtools	 coverage2	0:07:33.430000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000172
+bedtools	 coverage2	0:16:33.990000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000232
+bedtools	 coverage2	0:11:33.700000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000156
+bedtools	 coverage2	0:16:33.940000	 -1
+paste	 None	0:00:00.260000	 -1
+mv	 None	0:00:00.280000	 0.000776
+bedtools	 coverage2	0:06:33.380000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:21:34.160000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000168
+bedtools	 coverage2	0:20:34.200000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.00052
+bedtools	 coverage2	0:13:33.700000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.00052
+Rscript	 norm_peaks.bed	0:00:05.510000	 0.025668
+# Pipeline started at 10-05 18:24:49
+
+# Pipeline started at 10-05 18:42:52
+
+# Pipeline started at 10-05 18:44:36
+
+# Pipeline started at 10-05 18:45:21
+
+# Pipeline started at 10-05 18:46:40
+
+bedtools	 coverage	0:21:34.160000	 -1
+bedtools	 coverage2	0:11:33.690000	 -1
+paste	 None	0:00:00.260000	 -1
+mv	 None	0:00:00.250000	 0.000172
+bedtools	 coverage2	0:21:34.250000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.00052
+bedtools	 coverage2	0:20:34.110000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:26:34.500000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000204
+bedtools	 coverage2	0:18:34.040000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:25:34.360000	 -1
+paste	 None	0:00:00.260000	 -1
+mv	 None	0:00:00.260000	 0.000512
+bedtools	 coverage2	0:09:33.580000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00052
+bedtools	 coverage2	0:15:33.940000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000152
+bedtools	 coverage2	0:10:33.640000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000512
+bedtools	 coverage2	0:16:33.910000	 -1
+paste	 None	0:00:00.260000	 -1
+mv	 None	0:00:00.260000	 0.00052
+bedtools	 coverage2	0:06:33.360000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000216
+bedtools	 coverage2	0:20:34.240000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.00052
+bedtools	 coverage2	0:20:34.100000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000516
+bedtools	 coverage2	0:13:33.800000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00052
+Rscript	 norm_peaks.bed	0:00:51.310000	 0.466992
+annotatePeaks.pl	 norm_peaks_annotated.txt	0:00:05.510000	 -1
+# Pipeline started at 10-06 08:36:37
+
+# Pipeline started at 10-06 08:38:24
+
+# Pipeline started at 10-06 08:39:03
+
+# Pipeline started at 10-06 08:39:53
+
+# Pipeline started at 10-06 08:40:14
+
+annotatePeaks.pl	 norm_peaks_annotated.txt	0:01:46.840000	 -1

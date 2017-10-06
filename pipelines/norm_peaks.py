@@ -19,7 +19,6 @@ from datetime import datetime
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
 parser = pypiper.add_pypiper_args(parser, all_args = True)
-#parser = pypiper.add_pypiper_args(parser, groups = ['all'])  # future version
 
 #Add any pipeline-specific arguments
 parser.add_argument('-gs', '--genome-size', default="hs", dest='genomeS',type=str, help='genome size for Macs2')
@@ -32,7 +31,6 @@ args = parser.parse_args()
 outfolder = os.path.abspath(os.path.join(args.output_parent, args.sample_name))
 pm = pypiper.PipelineManager(name = "norm_peaks", outfolder = outfolder, args = args)
 ngstk = pypiper.NGSTk(pm=pm)
-
 
 # Convenience alias 
 tools = pm.config.tools
@@ -57,37 +55,35 @@ ngstk.make_dir(Peak_folder)
 rmdup_folder = os.path.join(param.outfolder, "rmdup_bams")
 ngstk.make_dir(rmdup_folder)
 
-# Find low variance peaks
+#Call peaks if narrowPeak files not supplied
 if not args.narrowpeak:
     for bamfile in sorted(os.listdir(args.input[0])):
         if bamfile.endswith(".bam"):
-            filename = os.path.basename(bamfile).rstrip(".bam")
+            filename = os.path.splitext(os.path.basename(bamfile))[0]
             bamfile=os.path.join(args.input[0], bamfile)
     
             index = str(bamfile) +".bai"
             cmd = tools.samtools + " index " + bamfile
             pm.run(cmd, index)
-        
+            
+            #Remove duplicates if necessary
             if not args.rmdup:
                 rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
-                Metrics_file = os.path.join(rmdup_folder, filename + "_picard_metrics_bam.txt")
-                picard_log = os.path.join(rmdup_folder, filename + "_picard_metrics_log.txt")
-                cmd3 =  tools.picard + " MarkDuplicates "  + " INPUT=" + bamfile + " OUTPUT="
-                cmd3 += rmdup_bam + " METRICS_FILE=" + Metrics_file + " VALIDATION_STRINGENCY=LENIENT"
-                cmd3 += " ASSUME_SORTED=true REMOVE_DUPLICATES=true > " +  picard_log
-                cmd4 = tools.samtools + " index " + rmdup_bam 
-                pm.run([cmd3,cmd4], rmdup_bam)
+                cmd1 =  tools.samtools + " rmdup " + bamfile + " "  + rmdup_bam
+                cmd2 = tools.samtools + " index " + rmdup_bam 
+                pm.run([cmd1,cmd2], rmdup_bam)
             else:
                 shutil.copy(bamfile, rmdup_folder)
                 shutil.copy(index, rmdup_folder)
-                filename = filename.rstrip(".rmdup")
+                filename = os.splitext(filename)[0]
                 rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
 
-            # shift bam file 
+            #Create bed file
             shift_bed = os.path.join(rmdup_folder ,  filename + ".rmdup.bed")
             cmd = tools.bam2bed_shift + " " +  rmdup_bam 
             pm.run(cmd,shift_bed)
-
+            
+            #Peak calling with Macs2
             peak_file= os.path.join(Peak_folder ,  filename + "_peaks.narrowPeak")
             cmd = tools.macs2 + " callpeak "
             cmd += " -t  " + shift_bed 
@@ -101,55 +97,65 @@ if not args.narrowpeak:
 else:
     shutil.copy(args.input[0], Peak_folder)
 
+#Create merged peak file
 merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
 cmd = tools.mergePeaks + " MergePeakID "
 cmd += os.path.join(Peak_folder, "*_peaks.narrowPeak")
 cmd += " | cut -f 1,2,3,4 > " + merged_peak_file
 pm.run(cmd, merged_peak_file)
 
+#Count reads in each peak
 Merged_counts = os.path.join(param.outfolder, "MergedPeaks_counts.bed")
+Merged_counts_temp = os.path.join(param.outfolder, "MergedPeaks_counts_temp.bed")
 count = 0
-for bamfile in sorted(os.listdir(rmdup_folder)):
-    if bamfile.endswith(".bam"):
-        filename = bamfile.rstrip(".bam")
-        bamfile=os.path.join(rmdup_folder, bamfile)
+if not os.path.exists(Merged_counts):
+    for bamfile in sorted(os.listdir(rmdup_folder)):
+        if bamfile.endswith(".bam"):
+            filename = os.path.splitext(bamfile)[0]
+            bamfile=os.path.join(rmdup_folder, bamfile)
     
-        index = str(bamfile) +".bai"
-        cmd = tools.samtools + " index " + bamfile
-        pm.run(cmd, index)
-        if count == 0:
-            cmd = tools.bedtools + " coverage "
-            cmd += "-a " + merged_peak_file
-            cmd += " -b " + bamfile
-            cmd += " | cut -f 1,2,3,4,5 > " 
-            cmd += Merged_counts
-            pm.run(cmd, lock_name= "coverage")
+            index = str(bamfile) +".bai"
+            cmd = tools.samtools + " index " + bamfile
+            pm.run(cmd, index)
+            if count == 0:
+                cmd = tools.bedtools + " coverage "
+                cmd += "-a " + merged_peak_file
+                cmd += " -b " + bamfile
+                cmd += " | cut -f 1,2,3,4,5 > " 
+                cmd += Merged_counts_temp
+                pm.run(cmd, lock_name= "coverage")
         
-            count += 1
-        else:
-            temp = os.path.join(param.outfolder, "temp.bed")
-            Merged_temp = os.path.join(param.outfolder, "Merged_temp.bed")
+                count += 1
+            else:
+                temp = os.path.join(param.outfolder, "temp.bed")
+                Merged_temp = os.path.join(param.outfolder, "Merged_temp.bed")
         
-            cmd1 = tools.bedtools + " coverage "
-            cmd1 += "-a " + merged_peak_file
-            cmd1 += " -b " + bamfile
-            cmd1 += " | cut -f 5 > " 
-            cmd1 += temp
+                cmd1 = tools.bedtools + " coverage "
+                cmd1 += "-a " + merged_peak_file
+                cmd1 += " -b " + bamfile
+                cmd1 += " | cut -f 5 > " 
+                cmd1 += temp
         
-            cmd2 = "paste " + Merged_counts + " "+temp + " > " + Merged_temp
+                cmd2 = "paste " + Merged_counts + " "+temp + " > " + Merged_temp
         
-            cmd3 = "mv " + Merged_temp + " "+ Merged_counts
+                cmd3 = "mv " + Merged_temp + " "+ Merged_counts_temp
         
-            pm.run([cmd1, cmd2, cmd3], lock_name="coverage2")
+                pm.run([cmd1, cmd2, cmd3], lock_name="coverage2")
+    cmd = "mv " + Merged_counts_temp + " " + Merged_counts
+    pm.run(cmd, Merged_counts)
+    pm.clean_add(temp)
+    pm.clean_add(Merged_temp)
+    pm.clean_add(Merged_counts_temp)
             
-pm.clean_add(temp)
-pm.clean_add(Merged_temp)     
 
+
+#find low variance peaks using DESeq
 norm_peak = os.path.join(param.outfolder, "norm_peaks.bed")
 cmd = tools.Rscript + " " + tools.norm_counts + " " 
 cmd += Merged_counts + " " +str(args.returnN) + " " + norm_peak
 pm.run(cmd, norm_peak)
 
+#annotate low variance peaks using homer
 norm_annot = os.path.join(param.outfolder, "norm_peaks_annotated.txt")
 cmd = tools.annotate_peaks + " " + norm_peak + " "
 cmd += args.genome_assembly + " > " + norm_annot
