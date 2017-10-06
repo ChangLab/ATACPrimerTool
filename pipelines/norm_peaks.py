@@ -39,7 +39,6 @@ res = pm.config.resources
 
 # Set up reference resource according to genome prefix.
 gfolder = os.path.join(res.genomes, args.genome_assembly)
-res.chrom_sizes = os.path.join(gfolder, args.genome_assembly + ".chromSizes")
 
 output = outfolder
 param.outfolder = outfolder
@@ -146,7 +145,6 @@ if not os.path.exists(Merged_counts):
     pm.clean_add(temp)
     pm.clean_add(Merged_temp)
     pm.clean_add(Merged_counts_temp)
-            
 
 
 #find low variance peaks using DESeq

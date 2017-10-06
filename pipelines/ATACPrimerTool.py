@@ -223,7 +223,7 @@ if args.genome_fasta:
     qPCR_regions_seq = os.path.splitext(str(qPCR_regions))[0] + "_seq.bed"
     cmd = tools.bedtools + " getfasta -fi "
     cmd += str(args.genome_fasta) + " -bed " + str(qPCR_regions)
-    cmd += " -name -bedOut > " + str(qPCR_regions_seq)
+    cmd += " -name -tab -fo " + str(qPCR_regions_seq)
     pm.run(cmd, lock_name = "qPCR_regions_seq")
 
 pm.stop_pipeline()
