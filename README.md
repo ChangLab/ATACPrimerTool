@@ -32,7 +32,7 @@ where `path/to/ATACPrimerTool` is the path to the ATACPrimerTool directory.
 ## Package dependencies
 
 This pipeline requires the following packages: R, samtools and bedtools (>= version 2.19.0). These packages must be either 
-be in your `$PATH` or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool.yaml). We recommend
+be in your `$PATH` or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml). We recommend
 using conda to manage packages if you do not have the required package dependencies.  Information on conda and the bioconda
 channel where these packages are available is located at [https://bioconda.github.io/](https://bioconda.github.io/).
 
@@ -50,9 +50,9 @@ See example command in [cmd.sh](cmd.sh) or run it with:
 Chromosome sizes for the following reference genomes are available in the [genomes](genomes/) directory: hg19, hg38, mm9, mm10.  
 
 If you would like to use another reference genome, download [fetchChromSizes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjR1Oi9-sjVAhUQ7GMKHZ0CChsQFggoMAA&url=http%3A%2F%2Fhgdownload.cse.ucsc.edu%2Fadmin%2Fexe%2Flinux.x86_64%2FfetchChromSizes&usg=AFQjCNFl70SKF51EO0cC9FBsVAIZpLc0kg) and add the path to 
-[ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  fetchChromSizes is also available in bioconda as ucsc-fetchchromsizes.
+[ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml).  fetchChromSizes is also available in bioconda as ucsc-fetchchromsizes.
 
-In order to output the DNA sequence of optimal primer regions, the reference genome fasta file must also be available in the genomes directory referenced by [ATACqPCR.yaml](pipelines/ATACqPCR.yaml).  
+In order to output the DNA sequence of optimal primer regions, the reference genome fasta file must also be available in the genomes directory referenced by [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml).  
 
 ## Input files
 

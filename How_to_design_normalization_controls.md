@@ -9,10 +9,10 @@ of interest or species for which ATAC-qPCR normalization controls have not been 
 
 This tool uses the same dependencies as ATAC Primer Tool (see the [README](README.md)). In addition to the 
 package dependencies required for ATAC Primer Tool (samtools, bedtools, and R), normalization peak design 
-also requires MACS2, Picard and Homer.  
+also requires DESeq2 (a bioconductor package in R), MACS2 and Homer.  
 
 Make sure package depedencies are either in the `$PATH` variable or hardcoded in the 
-[norm_peaks.yaml](pipelines/norm_peaks.yaml) file.  
+[norm_peaks.yaml](pipelines/norm_peaks_config.yaml) file.  
 
 ## Running the pipeline
 
@@ -24,8 +24,7 @@ See example command in [norm_peaks.sh](norm_peaks.sh):
 
 ## Input files
 
-Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  ATAC-seq peak files in narrowPeak format can also
-be used directly, although bam files are required for primer design.
+Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  If available, narrowPeak files based on the given bam files can also be supplied.  
 
 Bam files should be obtained from paired-end sequencing and sorted by position.  
 
@@ -37,7 +36,7 @@ The following parameters can be modified:
 
 `-rmdup (--duplicates_removed)`: whether duplicates have already been removed from bam file.  Default is false.
 
-`-narrowpeak (--narrowpeak_input)`: use this setting if you are starting from narrowpeak files rather than bam files.  Default is false.
+`-narrowpeak (--narrowpeak_input)`: use this setting if you are also supplying narrowpeak files.  These should be in the same directory as input bam files. Default is false.
 
 ## Getting Started
 
@@ -59,7 +58,8 @@ An example command with default arguments is available in [norm_peaks.sh](norm_p
 or by running
 
 ```
-python pipelines/norm_peaks.py -P 3 -M 100 -O test_out/ -S BJ_norm -G hg19 -C norm_peaks.yaml -I ~/BJ_analysis -return 500 -gs hs -rmdup true
+python pipelines/norm_peaks.py -O test_out/ -S norm_peaks -G hg38 -C norm_peaks.yaml -I ~/ATACPrime
+rTool/test_data/norm_peaks -return 500 -gs hs -rmdup
 ```
 
 The normalization peak pipeline will produce a list of low variance peaks as well as their annotations.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
