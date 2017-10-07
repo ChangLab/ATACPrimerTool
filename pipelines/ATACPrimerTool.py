@@ -17,7 +17,7 @@ from datetime import datetime
 # Argument Parsing from yaml file 
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
-parser = pypiper.add_pypiper_args(parser, all_args = True)
+parser = pypiper.add_pypiper_args(parser, groups=["common", "config"], args=["recover", "new-start", "output-parent", "input2", "genome"])
 
 #Add any pipeline-specific arguments
 parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",type=float, help="cutoff for peak correlation")

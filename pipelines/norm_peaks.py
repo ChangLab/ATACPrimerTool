@@ -18,7 +18,7 @@ from datetime import datetime
 # Argument Parsing from yaml file 
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
-parser = pypiper.add_pypiper_args(parser, all_args = True)
+parser = pypiper.add_pypiper_args(parser, groups=["common", "config"], args=["recover", "new-start", "output-parent", "genome"])
 
 #Add any pipeline-specific arguments
 parser.add_argument('-gs', '--genome-size', default="hs", dest='genomeS',type=str, help='genome size for Macs2')
