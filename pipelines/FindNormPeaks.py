@@ -21,7 +21,7 @@ parser = ArgumentParser(description='Pipeline')
 parser = pypiper.add_pypiper_args(parser, groups=["config"], args=["sample-name", "recover", "new-start", "output-parent", "genome"])
 
 #Add any pipeline-specific arguments
-parser.add_argument('-I', '--input-dir', dest='input',type=str, help="path to directory containing input bam files (and narrowpeak files if applicable)")
+parser.add_argument('-I', '--input-dir',required=True, dest='input',type=str, help="path to directory containing input bam files (and narrowpeak files if applicable) (required)")
 parser.add_argument('-gs', '--genome-size', default="hs", dest='genomeS',type=str, help='genome size for Macs2')
 parser.add_argument("-return", "--return_peaks", default="500", dest="returnN",type=int, help="number of peaks to return")
 parser.add_argument('-rmdup', "--duplicates-removed", action='store_true', default=False, dest="rmdup", help="bam files already have duplicates removed")

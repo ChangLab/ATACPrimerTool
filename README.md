@@ -67,6 +67,12 @@ APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files 
 
 `-b (--input-peaks)`: bed file containing coordinates of peaks for which primers should be designed.  Coordinates should match the reference genome to which the bam files were mapped.
 
+`-O (--ouput-parent)`: parent output directory of the project.
+
+`-S (--sample-name)`: unique name for output subfolder and files.
+
+`-G (--genome)`: identifier for genome assembly.
+
 ## APT Parameters
 
 There are multiple parameters of APT that you can modify to fit your needs, although the default parameters are a good place to start. After running APT on a set of peaks, you can quickly rerun with different parameters using the same output directory and sample name. Output files will not be overwritten.   
@@ -89,6 +95,14 @@ The following parameters can be modified:
 
 
 Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend to give less accurate results with ATAC-qPCR.
+
+
+The following arguments are useful if restarting a failed or interrupted pipeline:
+
+`-R (--recover)`: Recover mode, overwrite locks (output that has already been generated will not be overwritten).
+
+`-N (--new-start)`: Fresh start mode, overwrite all.
+
 
 ## Getting Started
 
@@ -118,8 +132,6 @@ python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPr
 ```
 
 Pipeline output will be in the located in the `APT_practice/APT_test` directory.  Coordinates of optimal ATAC-qPCR regions are saved in bed file format named with the prefix of the input bed file name, followed by `_qPCR_regions_corrX.X_covX.bed`, where `X.X` and `X` are the correlation and coverage parameters.
-
-**Note:** If the pipeline fails, rerun it will the additional parameter `-R` or `--recover` to overwrite lock files.  Outputs that have already been correctly produced will not be regenerated.
 
 ## Designing normalization controls
 

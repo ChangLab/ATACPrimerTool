@@ -20,8 +20,8 @@ parser = ArgumentParser(description='Pipeline')
 parser = pypiper.add_pypiper_args(parser, groups=["config"], args=["sample-name", "recover", "new-start", "output-parent", "genome"])
 
 #Add any pipeline-specific arguments
-parser.add_argument("-I", "--input-dir", dest="input",type=str, help="path to directory containing input bam files (or bedpe files if applicable)")
-parser.add_argument("-b", "--input-peaks", dest="peaks",type=str, help="bed file containing coordinates of peaks of interest")
+parser.add_argument("-I", "--input-dir", required=True, dest="input",type=str, help="path to directory containing input bam files (or bedpe files if applicable) (required)")
+parser.add_argument("-b", "--input-peaks", required=True, dest="peaks",type=str, help="bed file containing coordinates of peaks of interest (required)")
 parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",type=float, help="cutoff for peak correlation")
 parser.add_argument("-cov", "--cov_cutoff", default="3", dest="cov_cutoff",type=int, help="cutoff for spanning read coverage")
 parser.add_argument("-window", "--window_size", default="100", dest="window_size",type=int, help="window size")

@@ -24,9 +24,15 @@ See example command in [FindNormPeaks.sh](FindNormPeaks.sh):
 
 ## Input files
 
-Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  If available, narrowPeak files based on the given bam files can also be supplied. The only required argument is the directory of the input files:
+Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  If available, narrowPeak files based on the given bam files can also be supplied. The following arguments are required:
 
 `-I (--input-dir)`: path to directory containing input ATAC-seq bam files (and narrowpeak files if applicable). Bam files must be from paired-end sequencing and sorted by position.  
+
+`-O (--ouput-parent)`: parent output directory of the project.
+
+`-S (--sample-name)`: unique name for output subfolder and files.
+
+`-G (--genome)`: identifier for genome assembly.
 
 ## Parameters
 
@@ -37,6 +43,13 @@ The following parameters can be modified:
 `-rmdup (--duplicates_removed)`: whether duplicates have already been removed from bam file.  Default is false.
 
 `-narrowpeak (--narrowpeak_input)`: use this setting if you are also supplying narrowpeak files.  These should be in the same directory as input bam files. Default is false.
+
+
+The following arguments are useful if restarting a failed or interrupted pipeline:
+
+`-R (--recover)`: Recover mode, overwrite locks (output that has already been generated will not be overwritten).
+
+`-N (--new-start)`: Fresh start mode, overwrite all.
 
 ## Getting Started
 
