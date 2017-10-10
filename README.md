@@ -97,7 +97,7 @@ The following parameters can be modified:
 Modification of the correlation and coverage parameters can be useful to narrow down the most optimal primer regions if large regions are returned or to relax the stringency if no regions are found for some peaks. For peaks with low accessibility, decreasing the coverage cutoff and increasing the amount of input DNA into the qPCR reaction can help, although peaks with low accessibility tend to give less accurate results with ATAC-qPCR.
 
 
-The following arguments are useful if restarting a failed or interrupted pipeline:
+**Note:** The following arguments are useful if restarting a failed or interrupted pipeline:
 
 `-R (--recover)`: Recover mode, overwrite locks (output that has already been generated will not be overwritten).
 

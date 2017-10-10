@@ -45,7 +45,7 @@ The following parameters can be modified:
 `-narrowpeak (--narrowpeak_input)`: use this setting if you are also supplying narrowpeak files.  These should be in the same directory as input bam files. Default is false.
 
 
-The following arguments are useful if restarting a failed or interrupted pipeline:
+**Note:** The following arguments are useful if restarting a failed or interrupted pipeline:
 
 `-R (--recover)`: Recover mode, overwrite locks (output that has already been generated will not be overwritten).
 
