@@ -12,7 +12,7 @@ package dependencies required for ATAC Primer Tool (samtools, bedtools, and R), 
 also requires DESeq2 (a bioconductor package in R), MACS2 and Homer.  
 
 Make sure package depedencies are either in the `$PATH` variable or hardcoded in the 
-[FindNormPeaks.yaml](pipelines/norm_peaks_config.yaml) file.  
+[FindNormPeaks.yaml](pipelines/FindNormPeaks_config.yaml) file.  
 
 ## Running the pipeline
 
