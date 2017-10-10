@@ -44,6 +44,8 @@ The following parameters can be modified:
 
 `-narrowpeak (--narrowpeak_input)`: use this setting if you are also supplying narrowpeak files.  These should be in the same directory as input bam files. Default is false.
 
+`-C (--config)`: pipeline config file in YAML format.  Default is [FindNormPeaks.yaml](pipelines/FindNormPeaks_config.yaml).
+
 
 **Note:** The following arguments are useful if restarting a failed or interrupted pipeline:
 
