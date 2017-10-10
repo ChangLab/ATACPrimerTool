@@ -65,7 +65,7 @@ APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files 
 
 `-I (--input-dir)`: path to directory containing input ATAC-seq bam files. Bam files must be from paired-end sequencing and sorted by position.  
 
-`-b (--input-peaks)`: bed file containing coordinates of peaks for which primers should be designed.  Coordinates should match the reference genome to which the bam files were mapped.
+`-B (--input-peaks)`: bed file containing coordinates of peaks for which primers should be designed.  Coordinates should match the reference genome to which the bam files were mapped.
 
 `-O (--ouput-parent)`: parent output directory of the project.
 
@@ -128,7 +128,7 @@ An example APT command with default arguments is available in [cmd.sh](cmd.sh). 
 or by running
 
 ```
-python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -b test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -counts
+python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -B test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -counts
 ```
 
 Pipeline output will be in the located in the `APT_practice/APT_test` directory.  Coordinates of optimal ATAC-qPCR regions are saved in bed file format named with the prefix of the input bed file name, followed by `_qPCR_regions_corrX.X_covX.bed`, where `X.X` and `X` are the correlation and coverage parameters.
