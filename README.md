@@ -63,9 +63,9 @@ In order to output the DNA sequence of optimal primer regions, the reference gen
 
 APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files can be downloaded from public repositories such as ENCODE or GEO or user-generated to match your cell type of interest.  A list of ATAC-seq datasets from a variety of both human and mouse tissue available from ENCODE is supplied in the APT manuscript.  APT requires the following inputs:
 
-`-I (--input)`: path to directory containing input ATAC-seq bam files. Bam files must be from paired-end sequencing and sorted by position.  
+`-I (--input-dir)`: path to directory containing input ATAC-seq bam files. Bam files must be from paired-end sequencing and sorted by position.  
 
-`-I2 (--input2)`: bed file containing coordinates of peaks for which primers should be designed.  Coordinates should match the reference genome to which the bam files were mapped.
+`-b (--input-peaks)`: bed file containing coordinates of peaks for which primers should be designed.  Coordinates should match the reference genome to which the bam files were mapped.
 
 ## APT Parameters
 
@@ -114,10 +114,10 @@ An example APT command with default arguments is available in [cmd.sh](cmd.sh). 
 or by running
 
 ```
-python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -I2 test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -counts
+python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -b test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -counts
 ```
 
-Results will be in the located in the `APT_practice/APT_test` directory.
+Pipeline output will be in the located in the `APT_practice/APT_test` directory.  Coordinates of optimal ATAC-qPCR regions are saved in bed file format named with the prefix of the input bed file name, followed by `_qPCR_regions_corrX.X_covX.bed`, where `X.X` and `X` are the correlation and coverage parameters.
 
 **Note:** If the pipeline fails, rerun it will the additional parameter `-R` or `--recover` to overwrite lock files.  Outputs that have already been correctly produced will not be regenerated.
 

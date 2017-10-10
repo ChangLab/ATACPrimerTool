@@ -12,21 +12,21 @@ package dependencies required for ATAC Primer Tool (samtools, bedtools, and R), 
 also requires DESeq2 (a bioconductor package in R), MACS2 and Homer.  
 
 Make sure package depedencies are either in the `$PATH` variable or hardcoded in the 
-[norm_peaks.yaml](pipelines/norm_peaks_config.yaml) file.  
+[FindNormPeaks.yaml](pipelines/norm_peaks_config.yaml) file.  
 
 ## Running the pipeline
 
-See example command in [norm_peaks.sh](norm_peaks.sh):
+See example command in [FindNormPeaks.sh](FindNormPeaks.sh):
 
 ```
-./norm_peaks.sh
+./FindNormPeaks.sh
 ```
 
 ## Input files
 
-Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  If available, narrowPeak files based on the given bam files can also be supplied.  
+Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  If available, narrowPeak files based on the given bam files can also be supplied. The only required argument is the directory of the input files:
 
-Bam files should be obtained from paired-end sequencing and sorted by position.  
+`-I (--input-dir)`: path to directory containing input ATAC-seq bam files (and narrowpeak files if applicable). Bam files must be from paired-end sequencing and sorted by position.  
 
 ## Parameters
 
@@ -40,8 +40,8 @@ The following parameters can be modified:
 
 ## Getting Started
 
-Below is an example for identifying normalization peaks based on publically available human ATAC-seq datasets from ENCODE.  The input files are listed in the 
-ATAC Primer Tool manuscript as well as in the [test_data/norm_peaks](test_data/norm_peaks) directory. The annotated list of normalization peaks generated is included in the [test_out/norm_peaks](test_out/norm_peaks) directory.  Intermediate files generated are not included due to file size, but will also be produced by the pipeline.  To identify normalization peaks:
+Below is an example for identifying normalization peaks based on publically available human ATAC-seq datasets from ENCODE.  The example input files have been pre-filtered to reduce file size and run time but the acccession information for the full files can be found in the
+ATAC Primer Tool manuscript as well as in the [test_data/NormPeaks](test_data/NormPeaks) directory. The annotated list of normalization peaks generated when file size files are used as input is also included in the [test_out/NormPeaks](test_out/NormPeaks) directory.  To identify normalization peaks:
 
 Enter the ATACPrimerTool directory
 
@@ -49,19 +49,18 @@ Enter the ATACPrimerTool directory
 cd ATACPrimerTool/
 ```
 
-An example command with default arguments is available in [norm_peaks.sh](norm_peaks.sh).  You can run this command directly once bam files have been downloaded from ENCODE using
+An example command with default arguments is available in [FindNormPeaks.sh](FindNormPeaks.sh). 
 
 ```
-./norm_peaks.sh
+./FindNormPeaks.sh
 ```
 
 or by running
 
 ```
-python pipelines/norm_peaks.py -O test_out/ -S norm_peaks -G hg38 -C norm_peaks.yaml -I ~/ATACPrime
-rTool/test_data/norm_peaks -return 500 -gs hs -rmdup
+python pipelines/FindNormPeaks.py -O APT_practice/ -S NormPeaks -G hg38 -C FindNormPeaks.yaml -I test_data/ENCODE_bams/ -return 500 -gs hs
 ```
 
-The normalization peak pipeline will produce a list of low variance peaks as well as their annotations.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
+The normalization peak pipeline will produce `norm_peaks.bed`, a list of low variance peaks in bed format. Peak annotation information will also be provided in the `norm_peaks_annotated.txt` file.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
 
 Once suitable normalization peaks have been identified, ATAC-seq bam files and normalization peak coordinates can be used as input into ATAC Primer Tool to identify optimal primer locations, as described in the [README](README.md).
