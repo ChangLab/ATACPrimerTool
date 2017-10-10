@@ -17,9 +17,11 @@ from datetime import datetime
 # Argument Parsing from yaml file 
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
-parser = pypiper.add_pypiper_args(parser, groups=["common", "config"], args=["recover", "new-start", "output-parent", "input2", "genome"])
+parser = pypiper.add_pypiper_args(parser, groups=["config"], args=["sample-name", "recover", "new-start", "output-parent", "genome"])
 
 #Add any pipeline-specific arguments
+parser.add_argument("-I", "--input-dir", dest="input",type=str, help="path to directory containing input bam files (or bedpe files if applicable)")
+parser.add_argument("-b", "--input-peaks", dest="peaks",type=str, help="bed file containing coordinates of peaks of interest")
 parser.add_argument("-corr", "--corr_cutoff", default="0.8", dest="corr_cutoff",type=float, help="cutoff for peak correlation")
 parser.add_argument("-cov", "--cov_cutoff", default="3", dest="cov_cutoff",type=int, help="cutoff for spanning read coverage")
 parser.add_argument("-window", "--window_size", default="100", dest="window_size",type=int, help="window size")
@@ -48,14 +50,14 @@ output = outfolder
 param.outfolder = outfolder
 
 ################################################################################
-print("Bam file directory: " + args.input[0]) 
-print("Peak bed file: " + args.input2[0]) 
+print("Bam file directory: " + args.input) 
+print("Peak bed file: " + args.peaks) 
 
 pm.report_result("Genome", args.genome_assembly)
 
 #split peaks into overlapping windows
 qPCR_windows = os.path.join(param.outfolder, "qPCR_windows.bed")
-cmd = tools.Rscript + " " + tools.make_window_bed + " " + str(args.input2[0]) + " " + str(args.window_size) + " " + str(qPCR_windows)
+cmd = tools.Rscript + " " + tools.make_window_bed + " " + str(args.peaks) + " " + str(args.window_size) + " " + str(qPCR_windows)
 pm.run(cmd, qPCR_windows)
 
 pm.clean_add(qPCR_windows)
@@ -63,7 +65,7 @@ pm.clean_add(qPCR_windows)
 #filter bam files for reads within 2kb of peaks
 ext_peak = os.path.join(param.outfolder, "ext_peak.bed")
 cmd = tools.bedtools + " slop "
-cmd += " -i " + str(args.input2[0]) 
+cmd += " -i " + str(args.peaks) 
 cmd += " -g " + str(res.chrom_sizes)
 cmd += " -b 2000 "
 cmd += "| sort -k1,1 -k2,2n - > " + ext_peak
@@ -77,10 +79,10 @@ if not os.path.exists(filtered_inputs):
 count = 0
 
 if args.bedpe_input:
-    for bedfile in sorted(os.listdir(args.input[0])):
+    for bedfile in sorted(os.listdir(args.input)):
         if bedfile.endswith(".bedpe"):
             filename = os.path.splitext(bedfile)[0]
-            bedfile = os.path.join(args.input[0], bedfile)
+            bedfile = os.path.join(args.input, bedfile)
             
             read_counts = os.path.join(filtered_inputs, filename + "_read_counts.txt")
             cmd = "wc -l < " + bedfile 
@@ -108,10 +110,10 @@ if args.bedpe_input:
             
             
 else:
-    for bamfile in sorted(os.listdir(args.input[0])):
+    for bamfile in sorted(os.listdir(args.input)):
         if bamfile.endswith(".bam"):
             filename = os.path.splitext(bamfile)[0]
-            bamfile=os.path.join(args.input[0], bamfile)
+            bamfile=os.path.join(args.input, bamfile)
     
             index = str(bamfile) +".bai"
             cmd = tools.samtools + " index " + bamfile
@@ -201,9 +203,9 @@ pm.clean_add(combined_f9)
 combined_read_counts = os.path.join(param.outfolder, "read_counts.txt") 
 if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
     if args.read_counts:
-        for filename in sorted(os.listdir(args.input[0])):
+        for filename in sorted(os.listdir(args.input)):
             if filename.endswith("_read_counts.txt"):
-                cmd = "cat " + os.path.join(args.input[0], filename) + " >> " + combined_read_counts
+                cmd = "cat " + os.path.join(args.input, filename) + " >> " + combined_read_counts
                 pm.run(cmd, lock_name = "read_counts")
     else:
         for filename in sorted(os.listdir(filtered_bams)):
@@ -212,7 +214,7 @@ if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
                 pm.run(cmd, lock_name = "read_counts") 
 
 #determine optimal qPCR regions
-qPCR_regions = os.path.join(param.outfolder, os.path.splitext(str(os.path.basename(args.input2[0])))[0] + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
+qPCR_regions = os.path.join(param.outfolder, os.path.splitext(str(os.path.basename(args.peaks)))[0] + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
 cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " "
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)

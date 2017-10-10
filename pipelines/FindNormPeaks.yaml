@@ -1,0 +1,29 @@
+# configure file for norm_peaks pipeline based on pypiper
+#system configure
+tools:
+
+# basic tools 
+  Rscript: Rscript
+# public tools 
+  samtools:  samtools
+  bedtools: bedtools
+  macs2: macs2
+  annotate_peaks: annotatePeaks.pl
+# private tools
+  bam2bed_shift: /storage/kdriest/ATACPrimerTool/scripts/bam2bed_shift.pl
+  norm_counts: /storage/kdriest/ATACPrimerTool/scripts/normpeaks.R
+  mergePeaks: /storage/kdriest/ATACPrimerTool/scripts/mergePeaks.pl
+#User configure
+resources:
+  genomes: /storage/kdriest/ATACPrimerTool/genomes/
+
+parameters:
+  # parameters passed to bioinformatic tools, subclassed by tool
+  
+  samtools:
+         q: 10
+  macs2: 
+         f: BED
+         q: 0.01
+         shift: 0 
+

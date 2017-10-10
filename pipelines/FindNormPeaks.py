@@ -18,9 +18,10 @@ from datetime import datetime
 # Argument Parsing from yaml file 
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
-parser = pypiper.add_pypiper_args(parser, groups=["common", "config"], args=["recover", "new-start", "output-parent", "genome"])
+parser = pypiper.add_pypiper_args(parser, groups=["config"], args=["sample-name", "recover", "new-start", "output-parent", "genome"])
 
 #Add any pipeline-specific arguments
+parser.add_argument('-I', '--input-dir', dest='input',type=str, help="path to directory containing input bam files (and narrowpeak files if applicable)")
 parser.add_argument('-gs', '--genome-size', default="hs", dest='genomeS',type=str, help='genome size for Macs2')
 parser.add_argument("-return", "--return_peaks", default="500", dest="returnN",type=int, help="number of peaks to return")
 parser.add_argument('-rmdup', "--duplicates-removed", action='store_true', default=False, dest="rmdup", help="bam files already have duplicates removed")
@@ -29,7 +30,7 @@ args = parser.parse_args()
 
 # Initialize
 outfolder = os.path.abspath(os.path.join(args.output_parent, args.sample_name))
-pm = pypiper.PipelineManager(name = "norm_peaks", outfolder = outfolder, args = args)
+pm = pypiper.PipelineManager(name = "FindNormPeaks", outfolder = outfolder, args = args)
 ngstk = pypiper.NGSTk(pm=pm)
 
 # Convenience alias 
@@ -44,7 +45,7 @@ output = outfolder
 param.outfolder = outfolder
 
 ################################################################################
-print("Bam file directory: " + args.input[0]) 
+print("Bam file directory: " + args.input) 
 
 pm.report_result("Genome", args.genome_assembly)
 
@@ -56,10 +57,10 @@ ngstk.make_dir(rmdup_folder)
 
 #Call peaks if narrowPeak files not supplied
 if not args.narrowpeak:
-    for bamfile in sorted(os.listdir(args.input[0])):
+    for bamfile in sorted(os.listdir(args.input)):
         if bamfile.endswith(".bam"):
             filename = os.path.splitext(os.path.basename(bamfile))[0]
-            bamfile=os.path.join(args.input[0], bamfile)
+            bamfile=os.path.join(args.input, bamfile)
     
             index = str(bamfile) +".bai"
             cmd = tools.samtools + " index " + bamfile
@@ -94,7 +95,7 @@ if not args.narrowpeak:
             pm.run(cmd, peak_file)
             
 else:
-    shutil.copy(args.input[0], Peak_folder)
+    shutil.copy(args.input, Peak_folder)
 
 #Create merged peak file
 merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
