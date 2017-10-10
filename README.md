@@ -89,7 +89,7 @@ The following parameters can be modified:
 
 `-fasta (--genome_fasta)`: location of reference genome fasta file if DNA sequence of optimal primer regions should be returned.  Default is false. 
 
-`-counts (--read_counts)`: used if read counts for orginial bam files have already been determined and are present in bam file folder.  Useful if input bam files have been filtered, as in test data set.  See [test_data/ENCODE_bams](test_data/ENCODE_bams) for examples.  Default is false.
+`-counts (--read_counts)`: used if read counts for original bam files have already been determined and are present in bam file folder.  Useful if input bam files have been filtered, as in test data set.  See [test_data/ENCODE_bams](test_data/ENCODE_bams) for examples.  Default is false.
 
 `-bedpe (--bedpe_input)`: used if input files are in bedpe (paired end bed) format rather than bam format.  This is faster than starting from bam files and is useful if you would like to design primers for multiple peak sets.  Bedpe files can be produced by sorting bam files by read name and using `bedtools bamtobed` with the `-bedpe` option.  Input bedpe files should be sorted by position.
 

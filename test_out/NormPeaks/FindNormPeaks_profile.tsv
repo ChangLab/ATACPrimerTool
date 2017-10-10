@@ -1,0 +1,54 @@
+# Pipeline started at 10-09 18:11:57
+
+# Pipeline started at 10-09 18:22:00
+
+# Pipeline started at 10-09 18:26:25
+
+bedtools	 coverage	0:18:34.110000	 -1
+bedtools	 coverage2	0:08:33.480000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00022
+bedtools	 coverage2	0:16:34	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:15:33.880000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000168
+bedtools	 coverage2	0:15:33.750000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.00052
+bedtools	 coverage2	0:13:33.600000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000168
+bedtools	 coverage2	0:17:34.010000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.260000	 0.000516
+bedtools	 coverage2	0:06:33.390000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000516
+bedtools	 coverage2	0:11:33.400000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00052
+bedtools	 coverage2	0:11:33.700000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000228
+bedtools	 coverage2	0:12:33.700000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000172
+bedtools	 coverage2	0:05:33.330000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000172
+bedtools	 coverage2	0:17:34.010000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000212
+bedtools	 coverage2	0:18:34.120000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.00022
+bedtools	 coverage2	0:10:33.550000	 -1
+paste	 None	0:00:00.250000	 -1
+mv	 None	0:00:00.250000	 0.000232
+mv	 MergedPeaks_counts.bed	0:00:00.250000	 0.0002
+Rscript	 norm_peaks.bed	0:00:51.310000	 0.472388
+annotatePeaks.pl	 norm_peaks_annotated.txt	0:00:51.310000	 -1
+# Pipeline started at 10-10 09:24:52
+
