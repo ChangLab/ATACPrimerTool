@@ -130,7 +130,7 @@ An example APT command with default arguments is available in [cmd.sh](cmd.sh). 
 or by running
 
 ```
-python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -C ATACPrimerTool.yaml -I test_data/ENCODE_bams -B test_data/test_peaks.bed -corr 0.8 -cov 3 -window 100 -overlap 0.9 -counts
+python pipelines/ATACPrimerTool.py -O APT_practice -S APT_test -G hg38 -I test_data/ENCODE_bams -B test_data/test_peaks.bed -counts
 ```
 
 Pipeline output will be in the located in the `APT_practice/APT_test` directory.  Coordinates of optimal ATAC-qPCR regions are saved in bed file format in the `APT_output` folder. Output files are named with the prefix of the input bed file name, followed by `_qPCR_regions_corrX.X_covX.bed`, where `X.X` and `X` are the correlation and coverage parameters.  Each line of the output file has the chromosome, start and stop coordinates, followed by the region name (`PeakName_regionX`) in tab-delimited format for each ATAC-qPCR region identified.  If a reference genome fasta file was supplied, the DNA sequence of the region will be available in the `_qPCR_regions_corrX.X_covX_seq.bed` file, otherwise it can be obtained from the coordinates using a genome browser such as UCSC.  The DNA sequence of the output regions should be used to design qPCR primers using available tools such as Primer3.  Additional information on primer design parameters is available in the ATAC Primer Tool manuscript.  
