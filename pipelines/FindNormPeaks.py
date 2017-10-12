@@ -56,32 +56,34 @@ rmdup_folder = os.path.join(param.outfolder, "rmdup_bams")
 ngstk.make_dir(rmdup_folder)
 
 #Call peaks if narrowPeak files not supplied
-if not args.narrowpeak:
-    for bamfile in sorted(os.listdir(args.input)):
-        if bamfile.endswith(".bam"):
-            filename = os.path.splitext(os.path.basename(bamfile))[0]
-            bamfile=os.path.join(args.input, bamfile)
-    
-            index = str(bamfile) +".bai"
-            cmd = tools.samtools + " index " + bamfile
-            pm.run(cmd, index)
-            
-            #Remove duplicates if necessary
-            if not args.rmdup:
-                rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
-                cmd1 =  tools.samtools + " rmdup " + bamfile + " "  + rmdup_bam
-                cmd2 = tools.samtools + " index " + rmdup_bam 
-                pm.run([cmd1,cmd2], rmdup_bam)
-            else:
-                shutil.copy(bamfile, rmdup_folder)
-                shutil.copy(index, rmdup_folder)
-                filename = os.splitext(filename)[0]
-                rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
 
+for bamfile in sorted(os.listdir(args.input)):
+    if bamfile.endswith(".bam"):
+        filename = os.path.splitext(os.path.basename(bamfile))[0]
+        bamfile=os.path.join(args.input, bamfile)
+
+        index = str(bamfile) +".bai"
+        cmd = tools.samtools + " index " + bamfile
+        pm.run(cmd, index)
+        
+        #Remove duplicates if necessary
+        if not args.rmdup:
+            rmdup_bam =  os.path.join(rmdup_folder, filename + ".rmdup.bam")
+            cmd1 =  tools.samtools + " rmdup " + bamfile + " "  + rmdup_bam
+            cmd2 = tools.samtools + " index " + rmdup_bam 
+            pm.run([cmd1,cmd2], rmdup_bam)
+        else:
+            rmdup_bam =  bamfile
+        
+        if not args.narrowpeak:
             #Create bed file
             shift_bed = os.path.join(rmdup_folder ,  filename + ".rmdup.bed")
             cmd = tools.bam2bed_shift + " " +  rmdup_bam 
             pm.run(cmd,shift_bed)
+            if args.rmdup:
+                shift_bed = os.path.join(args.input, filename + ".bed")
+                cmd = "mv " + shift_bed + " " + rmdup_folder
+                pm.run(cmd, shift_bed)
             
             #Peak calling with Macs2
             peak_file= os.path.join(Peak_folder ,  filename + "_peaks.narrowPeak")
@@ -94,59 +96,43 @@ if not args.narrowpeak:
             cmd +=  " --shift " + str(param.macs2.shift) + " --nomodel "  
             pm.run(cmd, peak_file)
             
-else:
-    shutil.copy(args.input, Peak_folder)
-
-#Create merged peak file
-merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
-cmd = tools.mergePeaks + " MergePeakID "
-cmd += os.path.join(Peak_folder, "*_peaks.narrowPeak")
-cmd += " | cut -f 1,2,3,4 > " + merged_peak_file
-pm.run(cmd, merged_peak_file)
+            #Create merged peak file
+            merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
+            cmd = tools.mergePeaks + " MergePeakID "
+            cmd += os.path.join(Peak_folder, "*_peaks.narrowPeak")
+            cmd += " | cut -f 1,2,3,4 > " + merged_peak_file
+            pm.run(cmd, merged_peak_file)
+            
+if args.narrowpeak:
+    merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
+    cmd = tools.mergePeaks + " MergePeakID "
+    cmd += os.path.join(args.input, "*.narrowPeak")
+    cmd += " | cut -f 1,2,3,4 > " + merged_peak_file
+    pm.run(cmd, merged_peak_file)
 
 #Count reads in each peak
-Merged_counts = os.path.join(param.outfolder, "MergedPeaks_counts.bed")
-Merged_counts_temp = os.path.join(param.outfolder, "MergedPeaks_counts_temp.bed")
-count = 0
-if not os.path.exists(Merged_counts):
+bam_list =""
+if not args.rmdup:
     for bamfile in sorted(os.listdir(rmdup_folder)):
         if bamfile.endswith(".bam"):
             filename = os.path.splitext(bamfile)[0]
             bamfile=os.path.join(rmdup_folder, bamfile)
-    
-            index = str(bamfile) +".bai"
-            cmd = tools.samtools + " index " + bamfile
-            pm.run(cmd, index)
-            if count == 0:
-                cmd = tools.bedtools + " coverage "
-                cmd += "-a " + merged_peak_file
-                cmd += " -b " + bamfile
-                cmd += " | cut -f 1,2,3,4,5 > " 
-                cmd += Merged_counts_temp
-                pm.run(cmd, lock_name= "coverage")
         
-                count += 1
-            else:
-                temp = os.path.join(param.outfolder, "temp.bed")
-                Merged_temp = os.path.join(param.outfolder, "Merged_temp.bed")
+            bam_list += " " + bamfile
+else:
+    for bamfile in sorted(os.listdir(args.input)):
+        if bamfile.endswith(".bam"):
+            filename = os.path.splitext(bamfile)[0]
+            bamfile=os.path.join(args.input, bamfile)
         
-                cmd1 = tools.bedtools + " coverage "
-                cmd1 += "-a " + merged_peak_file
-                cmd1 += " -b " + bamfile
-                cmd1 += " | cut -f 5 > " 
-                cmd1 += temp
-        
-                cmd2 = "paste " + Merged_counts_temp + " "+temp + " > " + Merged_temp
-        
-                cmd3 = "mv " + Merged_temp + " "+ Merged_counts_temp
-        
-                pm.run([cmd1, cmd2, cmd3], lock_name="coverage2")
-    cmd = "mv " + Merged_counts_temp + " " + Merged_counts
-    pm.run(cmd, Merged_counts)
-    pm.clean_add(temp)
-    pm.clean_add(Merged_temp)
-    pm.clean_add(Merged_counts_temp)
+            bam_list += " " + bamfile
 
+Merged_counts = os.path.join(param.outfolder, "MergedPeaks_counts.bed")
+cmd = tools.bedtools + " multicov "
+cmd += "-bams " + bam_list
+cmd += " -bed " + merged_peak_file 
+cmd += " > " + Merged_counts
+pm.run(cmd, Merged_counts)
 
 final_outfolder = os.path.join(param.outfolder, "FindNormPeaks_output/")
 if not os.path.exists(final_outfolder):
