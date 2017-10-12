@@ -113,7 +113,7 @@ directory and bam files have been pre-filtered for the regions of interest. The 
 
 Before starting, make sure pypiper and all dependencies have been installed, and that the appropriate reference genomes have been downloaded if DNA sequence is required in addition to coordinates.  
 
-Modify [ATACqPCR.yaml](pipelines/ATACqPCR.yaml) to include paths of required dependencies if they are not the your `$PATH` variable.
+Modify [ATACqPCR.yaml](pipelines/ATACqPCR_config.yaml) to include paths of required dependencies if they are not the your `$PATH` variable.
 
 Enter the ATACPrimerTool directory
 
