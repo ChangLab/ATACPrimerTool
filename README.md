@@ -1,12 +1,12 @@
 # ATAC Primer Tool
 
-Version: 1
+Version: 1.0
 
 Description: Predicts optimal regions for ATAC qPCR primers.
 
 Date: 2017-08-04
 
-Updated by : kdriest@stanford.edu
+Updated by : kyost@stanford.edu
 
 ## Installing
 
@@ -139,5 +139,3 @@ Pipeline output will be in the located in the `APT_practice/APT_test` directory.
 
 APT can also design additional normalization controls for ATAC-qPCR based on a specific cell type of interest or for ATAC-qPCR in species
 for which normalization controls have not been designed.  For usage see [How to Design Normalization Controls](How_to_design_normalization_controls.md)
-
-## Terms of use and licensing information
