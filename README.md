@@ -19,7 +19,7 @@ pip install --user https://github.com/epigen/pypiper/zipball/master
 Clone the APT repository by running the following command:
 
 ```
-git clone https://github.com/katieyost/ATACPrimerTool.git
+git clone https://github.com/ChangLab/ATACPrimerTool.git
 ```
 
 ## Configuring yaml files
