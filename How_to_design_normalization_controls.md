@@ -75,8 +75,8 @@ or by running
 python pipelines/FindNormPeaks.py -O APT_practice/ -S NormPeaks -G hg38 -C FindNormPeaks.yaml -I test_data/ENCODE_bams/ -return 500 -gs hs
 ```
 
-The normalization peak pipeline will produce `norm_peaks.bed`, a list of low variance peaks in bed format. Peak annotation information will also be provided in the `norm_peaks_annotated.txt` file.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
+The normalization peak pipeline output will be located in the `APT_practice/NormPeaks` directory.  Output files containing normalization peaks and their annotations will be in the `FindNormPeaks_ouput` directory.  Output generated includes `norm_peaks.bed`, a list of low variance peaks in bed format. Peak annotation information will also be provided in the `norm_peaks_annotated.txt` file.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
 
-**Note:** The output generated using the test data is not a list of valid normalization peaks due to filtering of input files.  See [norm_peaks_annotated.txt](test_out/NormPeaks/norm_peaks_annotated.txt) for a list of normalization peaks generated when run with full size input files.  
+**Note:** The output generated using the test data is not a list of valid normalization peaks due to filtering of input files.  See [norm_peaks_annotated.txt](test_out/NormPeaks/norm_peaks_annotated.txt) for a list of normalization peaks generated when run with full size input files.
 
 Once suitable normalization peaks have been identified, ATAC-seq bam files and normalization peak coordinates can be used as input into ATAC Primer Tool to identify optimal primer locations, as described in the [README](README.md).
