@@ -16,7 +16,7 @@ Make sure package depedencies are either in the `$PATH` variable or hardcoded in
 
 ## Running the pipeline
 
-See example command in [FindNormPeaks.sh](FindNormPeaks.sh):
+See example command in [FindNormPeaks.sh](FindNormPeaks.sh) or run it with:
 
 ```
 ./FindNormPeaks.sh
@@ -47,6 +47,7 @@ The following parameters can be modified:
 `-C (--config)`: pipeline config file in YAML format.  Default is [FindNormPeaks.yaml](pipelines/FindNormPeaks_config.yaml).
 
 
+
 **Note:** The following arguments are useful if restarting a failed or interrupted pipeline:
 
 `-R (--recover)`: Recover mode, overwrite locks (output that has already been generated will not be overwritten).
@@ -63,7 +64,7 @@ Enter the ATACPrimerTool directory
 cd ATACPrimerTool/
 ```
 
-An example command with default arguments is available in [FindNormPeaks.sh](FindNormPeaks.sh). 
+An example command with default arguments is available in [FindNormPeaks.sh](FindNormPeaks.sh). You can either run this command directly using
 
 ```
 ./FindNormPeaks.sh
@@ -72,11 +73,11 @@ An example command with default arguments is available in [FindNormPeaks.sh](Fin
 or by running
 
 ```
-python pipelines/FindNormPeaks.py -O APT_practice/ -S NormPeaks -G hg38 -C FindNormPeaks.yaml -I test_data/ENCODE_bams/ -return 500 -gs hs
+python pipelines/FindNormPeaks.py -O APT_practice/ -S NormPeaks -G hg38 -I test_data/ENCODE_bams -gs hs
 ```
 
 The normalization peak pipeline output will be located in the `APT_practice/NormPeaks` directory.  Output files containing normalization peaks and their annotations will be in the `FindNormPeaks_ouput` directory.  Output generated includes `norm_peaks.bed`, a list of low variance peaks in bed format. Peak annotation information will also be provided in the `norm_peaks_annotated.txt` file.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
 
-**Note:** The output generated using the test data is not a list of valid normalization peaks due to filtering of input files.  See [norm_peaks_annotated.txt](test_out/NormPeaks/norm_peaks_annotated.txt) for a list of normalization peaks generated when run with full size input files.
+**Note:** The output generated using the test data is not a list of valid normalization peaks due to filtering of input files.  See [test_out/NormPeaks/norm_peaks_annotated.txt](test_out/NormPeaks/norm_peaks_annotated.txt) for a list of normalization peaks generated when run with full size input files.
 
 Once suitable normalization peaks have been identified, ATAC-seq bam files and normalization peak coordinates can be used as input into ATAC Primer Tool to identify optimal primer locations, as described in the [README](README.md).
