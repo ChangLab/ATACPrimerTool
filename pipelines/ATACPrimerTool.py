@@ -17,7 +17,7 @@ from datetime import datetime
 # Argument Parsing from yaml file 
 # #######################################################################################
 parser = ArgumentParser(description='Pipeline')
-parser = pypiper.add_pypiper_args(parser, groups=["config"], args=["sample-name", "recover", "new-start", "output-parent", "genome"])
+parser = pypiper.add_pypiper_args(parser, groups=["config"], args=["sample-name", "recover", "dirty", "new-start", "output-parent", "genome"])
 
 #Add any pipeline-specific arguments
 parser.add_argument("-I", "--input-dir", required=True, dest="input",type=str, help="path to directory containing input bam files (or bedpe files if applicable) (required)")
@@ -212,9 +212,16 @@ if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
             if filename.endswith("_read_counts.txt"):
                 cmd = "cat " + os.path.join(filtered_bams, filename) + " >> " + combined_read_counts
                 pm.run(cmd, lock_name = "read_counts") 
+                
+pm.clean_add(combined_read_counts)
+
+
+final_outfolder = os.path.join(param.outfolder, "APT_output/")
+if not os.path.exists(final_outfolder):
+    os.mkdir(final_outfolder)
 
 #determine optimal qPCR regions
-qPCR_regions = os.path.join(param.outfolder, os.path.splitext(str(os.path.basename(args.peaks)))[0] + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
+qPCR_regions = os.path.join(final_outfolder, os.path.splitext(str(os.path.basename(args.peaks)))[0] + "_qPCR_regions_corr" + str(args.corr_cutoff) + "_cov" + str(args.cov_cutoff)+ ".bed")
 cmd = tools.Rscript + " " + tools.find_qPCR_regions + " "+ combined_o + " " + combined_f9
 cmd += " " + str(args.corr_cutoff) + " "+ str(args.cov_cutoff) + " "
 cmd += combined_read_counts + " " + str(param.outfolder) + " " + str(qPCR_regions)

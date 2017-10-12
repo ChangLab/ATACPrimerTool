@@ -43,8 +43,8 @@ find_regions <- function(a,b, corr_cut, cov_cut) { #a=obam b=0.9
     n <- nrow(asplit[[i]])-1
     m <- ncol(asplit[[i]])
 	
-	a_split <- asplit[[i]]
-	b_split <- bsplit[[i]]
+	  a_split <- asplit[[i]]
+  	b_split <- bsplit[[i]]
 
 	
     corb <- data.frame(cor(t(a_split[1,5:m])
@@ -65,39 +65,38 @@ find_regions <- function(a,b, corr_cut, cov_cut) { #a=obam b=0.9
     colnames(data2)<-c("position","averageReadDepth")
     colnames(data3)<-c("position","averageReadDepth")
 	
-    regions <- data[which(data$correlation > as.numeric(corr_cut) & data3$averageReadDepth > as.numeric(cov_cut)),]
+    regions <- data[which(data$correlation >= as.numeric(corr_cut) & data3$averageReadDepth >= as.numeric(cov_cut)),]
     regions <- regions[,2:4]
     if (nrow(regions)>0){
-                regions$V4 <- paste(as.character(a_split[1,4]),"_region1",sep="")
-    collapsed_regions <- regions[1,]
-    nregion <- 1
-    if (nrow(regions)>=2){
-		for (j in 2:nrow(regions)) {
-			if (as.numeric(regions[j,2]) <= (as.numeric(regions[j-1,3]))) {
-				collapsed_regions[nrow(collapsed_regions),3] <- regions[j,3]
-			}else{
-				collapsed_regions <- rbind(collapsed_regions, regions[j,])
-				nregion <- nregion + 1
-				collapsed_regions[nrow(collapsed_regions),4] <- paste(as.character(a_split[1,4])
-																	,"_region"
-																	, as.character(nregion)
-																	,sep="")	
-			}
-		}
-	}	
-	rownames(collapsed_regions) <- NULL
-		
-	combined_regions <- rbind(combined_regions, collapsed_regions)
+      regions$V4 <- paste(as.character(a_split[1,4]),"_region1",sep="")
+      collapsed_regions <- regions[1,]
+      nregion <- 1
+      if (nrow(regions)>=2){
+		    for (j in 2:nrow(regions)) {
+			    if (as.numeric(regions[j,2]) <= (as.numeric(regions[j-1,3]))) {
+				    collapsed_regions[nrow(collapsed_regions),3] <- regions[j,3]
+			    }else{
+				    collapsed_regions <- rbind(collapsed_regions, regions[j,])
+				    nregion <- nregion + 1
+				    collapsed_regions[nrow(collapsed_regions),4] <- paste(as.character(a_split[1,4])
+				                                                          ,"_region"
+				                                                          , as.character(nregion)
+				                                                          ,sep="")	
+			    }
+		    }
+      }	
+      rownames(collapsed_regions) <- NULL
+      combined_regions <- rbind(combined_regions, collapsed_regions)
+    }
+  }
+  return(combined_regions)
 }
-    
 
- }
-  
-  write.table(combined_regions
-              , output_file
-              , sep = "\t"
-              , col.names = FALSE
-              , row.names = FALSE
-              , quote = FALSE)				  
-}
-find_regions(o.coverage.data, f9.coverage.data, corr_cutoff, cov_cutoff)
+combined_regions <- find_regions(o.coverage.data, f9.coverage.data, corr_cutoff, cov_cutoff)
+
+write.table(combined_regions
+            , output_file
+            , sep = "\t"
+            , col.names = FALSE
+            , row.names = FALSE
+            , quote = FALSE)	

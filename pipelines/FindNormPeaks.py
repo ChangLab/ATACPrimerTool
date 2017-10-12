@@ -148,14 +148,18 @@ if not os.path.exists(Merged_counts):
     pm.clean_add(Merged_counts_temp)
 
 
+final_outfolder = os.path.join(param.outfolder, "FindNormPeaks_output/")
+if not os.path.exists(final_outfolder):
+    os.mkdir(final_outfolder)
+
 #find low variance peaks using DESeq
-norm_peak = os.path.join(param.outfolder, "norm_peaks.bed")
+norm_peak = os.path.join(final_outfolder, "norm_peaks.bed")
 cmd = tools.Rscript + " " + tools.norm_counts + " " 
 cmd += Merged_counts + " " +str(args.returnN) + " " + norm_peak
 pm.run(cmd, norm_peak)
 
 #annotate low variance peaks using homer
-norm_annot = os.path.join(param.outfolder, "norm_peaks_annotated.txt")
+norm_annot = os.path.join(final_outfolder, "norm_peaks_annotated.txt")
 cmd = tools.annotate_peaks + " " + norm_peak + " "
 cmd += args.genome_assembly + " > " + norm_annot
 pm.run(cmd, norm_annot)
