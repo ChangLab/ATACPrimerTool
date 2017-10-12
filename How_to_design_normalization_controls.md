@@ -22,7 +22,7 @@ See example command in [FindNormPeaks.sh](FindNormPeaks.sh) or run it with:
 ./FindNormPeaks.sh
 ```
 
-## Input files
+## Input arguments
 
 Identification of normalization peaks requires ATAC-seq bam files from the cell type or species of interest.  If available, narrowPeak files based on the given bam files can also be supplied. The following arguments are required:
 
@@ -33,6 +33,8 @@ Identification of normalization peaks requires ATAC-seq bam files from the cell 
 `-S (--sample-name)`: unique name for output subfolder and files.
 
 `-G (--genome)`: identifier for genome assembly.
+
+`-gs (--genomeS)`: genome size for Macs2 (use `hs` for human, `mm` for mouse).  
 
 ## Parameters
 
@@ -76,7 +78,7 @@ or by running
 python pipelines/FindNormPeaks.py -O APT_practice/ -S NormPeaks -G hg38 -I test_data/ENCODE_bams -gs hs
 ```
 
-The normalization peak pipeline output will be located in the `APT_practice/NormPeaks` directory.  Output files containing normalization peaks and their annotations will be in the `FindNormPeaks_ouput` directory.  Output generated includes `norm_peaks.bed`, a list of low variance peaks in bed format. Peak annotation information will also be provided in the `norm_peaks_annotated.txt` file.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
+The normalization peak pipeline output will be located in the `APT_practice/NormPeaks` directory.  Output files containing normalization peaks and their annotations will be in the `FindNormPeaks_ouput` directory.  Output generated includes `norm_peaks.bed`, a list of low variance peaks in bed format. The normalized counts for each sample are listed after the MergePeakID.  The last column is the coefficient of variation for that peak. Peak annotation information will also be provided in the `norm_peaks_annotated.txt` file.  For our uses, we select peaks at promotors of genes known to be ubiquitously expressed to increase the likelihood that the selected normalization peaks will work for samples beyond those used as input.  
 
 **Note:** The output generated using the test data is not a list of valid normalization peaks due to filtering of input files.  See [test_out/NormPeaks/norm_peaks_annotated.txt](test_out/NormPeaks/norm_peaks_annotated.txt) for a list of normalization peaks generated when run with full size input files.
 

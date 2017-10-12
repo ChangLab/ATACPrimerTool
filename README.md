@@ -59,7 +59,7 @@ If you would like to use another reference genome, download [fetchChromSizes](ht
 
 In order to output the DNA sequence of optimal primer regions, the reference genome fasta file must also be downloaded and the path passed as an argument.  
 
-## Input files
+## Input arguments
 
 APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files can be downloaded from public repositories such as ENCODE or GEO or user-generated to match your cell type of interest.  A list of ATAC-seq datasets from a variety of both human and mouse tissue available from ENCODE is supplied in the APT manuscript.  APT requires the following inputs:
 
