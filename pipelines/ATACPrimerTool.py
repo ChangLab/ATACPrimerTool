@@ -208,9 +208,9 @@ if not os.path.exists(os.path.join(param.outfolder, "read_counts.txt")):
                 cmd = "cat " + os.path.join(args.input, filename) + " >> " + combined_read_counts
                 pm.run(cmd, lock_name = "read_counts")
     else:
-        for filename in sorted(os.listdir(filtered_bams)):
+        for filename in sorted(os.listdir(filtered_inputs)):
             if filename.endswith("_read_counts.txt"):
-                cmd = "cat " + os.path.join(filtered_bams, filename) + " >> " + combined_read_counts
+                cmd = "cat " + os.path.join(filtered_inputs, filename) + " >> " + combined_read_counts
                 pm.run(cmd, lock_name = "read_counts") 
                 
 pm.clean_add(combined_read_counts)
