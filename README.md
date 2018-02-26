@@ -8,9 +8,14 @@ Date: 2017-08-04
 
 Updated by : kyost@stanford.edu
 
+## Galaxy Tool
+
+For information on how to run ATAC Primer Tool (APT) from the Galaxy Toolshed, please see 
+[Running APT with Galaxy](Running_APT_with_Galaxy.md). To run APT from command line, continue reading.
+
 ## Installing
 
-APT uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline. You can do a user-specific install like this:
+APT uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline, which can be installed using the following command:
 
 ```
 pip install --user https://github.com/epigen/pypiper/zipball/master
@@ -75,7 +80,10 @@ APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers.  Bam files 
 
 ## APT Parameters
 
-There are multiple parameters of APT that you can modify to fit your needs, although the default parameters are a good place to start. After running APT on a set of peaks, you can quickly rerun with different parameters using the same output directory and sample name. Output files will not be overwritten.   
+There are multiple parameters of APT that can be modified, although the default parameters are a good place to start. After running APT on 
+a set of peaks, you can quickly rerun with different parameters using the same output directory and sample name. Output files will not be 
+overwritten. In practice, we typically try a couple of different correlation cutoffs (i.e. 0.7, 0.8 and 0.9) to narrow down primer design 
+regions if large regions are output using the defaults or to extend primer design regions if primers cannot be designed in the original region.   
 
 The following parameters can be modified:
 
