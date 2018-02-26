@@ -4,9 +4,9 @@
 APT is also available as a Galaxy workflow.  The underlying code is the same as the command line version of APT.
 
 ## Getting Started
-The APT workflow can be added from the Galaxy ToolShed using the instructions found [here](https://galaxyproject.org/toolshed/workflow-sharing/).
+The APT workflow can be added from the Galaxy Test ToolShed using the instructions found [here](https://galaxyproject.org/toolshed/workflow-sharing/).
 The workflow can be downloaded [here](galaxy/Galaxy-Workflow-ATAC_Primer_Tool.ga) or by searching "ATAC Primer Tool" 
-in the workflows section of the Galaxy Toolshed Repository. Click on the workflow name and select **Install repository to local 
+in the workflows section of the Galaxy Test Toolshed Repository. Click on the workflow name and select **Install repository to local 
 Galaxy** from the **Repository Actions** menu to install the workflow and required tools.  
 
 Reference genomes should be locally downloaded and referenced in `tool-data`.  
