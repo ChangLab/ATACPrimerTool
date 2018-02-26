@@ -1,0 +1,473 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "ATAC Primer Tool", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "ATAC-seq bam files", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 227, 
+                "top": 295
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "2c0a2479-903a-46d6-af83-2fd16f0c4111", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "4a35572c-71e7-4459-8588-5f5934dfa525"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "Peak bed file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 129.5, 
+                "top": 593
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "6c0d911c-ebb7-416e-ac79-8a5e003d7887", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "1a1ce0ab-0645-49c8-a41c-fce53509282d"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_slopbed/2.27.0.0", 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {
+                "inputA": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SlopBed", 
+                    "name": "genome_file_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool SlopBed", 
+                    "name": "inputA"
+                }
+            ], 
+            "label": null, 
+            "name": "SlopBed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 376, 
+                "top": 474
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_slopbed/2.27.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "33c3ddea63c5", 
+                "name": "bedtools", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"addition\": \"{\\\"addition_select\\\": \\\"b\\\", \\\"b\\\": \\\"2000\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"genome_file_opts\": \"{\\\"__current_case__\\\": 0, \\\"genome_file_opts_selector\\\": \\\"loc\\\", \\\"genome\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"pct\": \"\\\"false\\\"\", \"header\": \"\\\"false\\\"\", \"inputA\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"strand\": \"\\\"false\\\"\"}", 
+            "tool_version": "2.27.0.0", 
+            "type": "tool", 
+            "uuid": "24ebc0be-7197-4754-8e3f-2462704c8ec9", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "make_window_bed", 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {
+                "input1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Create bed file of qPCR windows", 
+                    "name": "input1"
+                }
+            ], 
+            "label": "Create bed file of qPCR windows", 
+            "name": "Create bed file of qPCR windows", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 468.5, 
+                "top": 637.5
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }, 
+                "RenameDatasetActiongalaxy_output": {
+                    "action_arguments": {
+                        "newname": "qPCR window bed file"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "galaxy_output"
+                }
+            }, 
+            "tool_id": "make_window_bed", 
+            "tool_state": "{\"input2\": \"\\\"100\\\"\", \"__page__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"galaxy_input2\": \"\\\"100\\\"\", \"galaxy_input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "bcd18c7c-9923-4f61-866a-65242eb0a3b2", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "filter_bam", 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter bam files", 
+                    "name": "input2"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter bam files", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter bam files", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "output2", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 587.5, 
+                "top": 349
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output1"
+                }, 
+                "HideDatasetActionoutput2": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output2"
+                }
+            }, 
+            "tool_id": "filter_bam", 
+            "tool_state": "{\"input2\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "dd1b110c-4e5a-425e-9531-b932ae945248", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "concatenate_ordered", 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "output2"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Concatenate Ordered Dataset Collection", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Concatenate Ordered Dataset Collection", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 855.5, 
+                "top": 387
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output1"
+                }, 
+                "RenameDatasetActionoutput1": {
+                    "action_arguments": {
+                        "newname": "read_counts.txt"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output1"
+                }
+            }, 
+            "tool_id": "concatenate_ordered", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "1aa966bb-d26e-4a42-ba94-13683bfe07d9", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "window_coverage", 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "output1"
+                }, 
+                "input2": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Calculate window coverage", 
+                    "name": "input2"
+                }, 
+                {
+                    "description": "runtime parameter for tool Calculate window coverage", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Calculate window coverage", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output2", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 884, 
+                "top": 654.5
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output1"
+                }, 
+                "HideDatasetActionoutput2": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output2"
+                }, 
+                "RenameDatasetActionoutput1": {
+                    "action_arguments": {
+                        "newname": "Coverage bed file"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output1"
+                }, 
+                "RenameDatasetActionoutput2": {
+                    "action_arguments": {
+                        "newname": "Spanning fragment coverage bed file"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output2"
+                }
+            }, 
+            "tool_id": "window_coverage", 
+            "tool_state": "{\"input2\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input3\": \"\\\"0.9\\\"\", \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "2edcc6f7-3942-481b-b81d-35cb7ddc04c6", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "find_qPCR_regions", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "input1": {
+                    "id": 6, 
+                    "output_name": "output1"
+                }, 
+                "input2": {
+                    "id": 6, 
+                    "output_name": "output2"
+                }, 
+                "input3": {
+                    "id": 5, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Find ATAC qPCR regions", 
+                    "name": "input2"
+                }, 
+                {
+                    "description": "runtime parameter for tool Find ATAC qPCR regions", 
+                    "name": "input3"
+                }, 
+                {
+                    "description": "runtime parameter for tool Find ATAC qPCR regions", 
+                    "name": "input1"
+                }
+            ], 
+            "label": "Find ATAC qPCR regions", 
+            "name": "Find ATAC qPCR regions", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 1229.5, 
+                "top": 521.5
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "ATAC qPCR regions"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "find_qPCR_regions", 
+            "tool_state": "{\"input2\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input3\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input4\": \"\\\"0.8\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"input5\": \"\\\"3\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "24038597-f150-48f0-9d82-780c5a365649", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "galaxy_output", 
+                    "uuid": "f600b360-070e-4575-ac5d-f04c91b39dd3"
+                }, 
+                {
+                    "label": "ATAC qPCR regions", 
+                    "output_name": "output", 
+                    "uuid": "fff2624f-b80a-41d7-9266-7f045dbeada7"
+                }
+            ]
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "Extract genomic DNA 1", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "input": {
+                    "id": 7, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Extract Genomic DNA", 
+                    "name": "input"
+                }
+            ], 
+            "label": "Extract DNA sequence for ATAC qPCR Regions", 
+            "name": "Extract Genomic DNA", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1537, 
+                "top": 534
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "ATAC qPCR regions DNA sequences"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "Extract genomic DNA 1", 
+            "tool_state": "{\"out_format\": \"\\\"fasta\\\"\", \"interpret_features\": \"\\\"yes\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"seq_source\": \"{\\\"index_source\\\": \\\"cached\\\", \\\"__current_case__\\\": 0}\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "2.2.3", 
+            "type": "tool", 
+            "uuid": "1cb77694-0165-4eba-a5d5-03cade8c8c60", 
+            "workflow_outputs": [
+                {
+                    "label": "ATAC qPCR regions sequences", 
+                    "output_name": "out_file1", 
+                    "uuid": "b77e473a-edfd-41b2-b042-309282512b26"
+                }
+            ]
+        }
+    }, 
+    "uuid": "5238a742-76ff-4d9a-b191-7526b406e4de"
+}
