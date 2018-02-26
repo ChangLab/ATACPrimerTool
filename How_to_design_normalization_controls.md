@@ -5,6 +5,18 @@
 This document describes how to design normalization controls for ATAC-qPCR for either specific cell types
 of interest or species for which ATAC-qPCR normalization controls have not been designed.  
 
+## Rationale for Selection of Normalization Controls
+
+We select normalization controls for ATAC-qPCR by identifying peaks with low variability across samples and find that 
+normalization to such peaks using standard delta Ct analysis substantially improves correlation between ATAC-qPCR 
+and ATAC-seq. Standard normalization methods for analyzing ATAC-seq data include normalization by reads in peaks, 
+which corrects for differences in sequencing depth and TSS enrichment between libraries. Following normalization, 
+the distributions of peak-level log2-fold differences between samples are centered at zero. Peaks which are 
+consistently centered in this distribution will have the lowest variability, or coefficient of variation, defined 
+as the standard deviation divided by the mean normalized read count for that peak across samples. Normalization to
+such invariant peaks is therefore analagous to sequencing depth correction performed during ATAC-seq data analysis
+and can be used to accurately normalize ATAC-qPCR data.
+
 ## Additional Requirements
 
 This tool uses the same dependencies as ATAC Primer Tool (see the [README](README.md)). In addition to the 
