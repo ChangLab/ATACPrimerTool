@@ -49,7 +49,7 @@ find_regions <- function(a,b, corr_cut, cov_cut) { #a=obam b=0.9
 	
     corb <- data.frame(cor(t(a_split[1,5:m])
                            , t(b_split[-1,5:m])
-						   , method = "spearman"))
+						   , method = "pearson"))
     
     data <- data.frame(t(corb), row.names = NULL, stringsAsFactors = FALSE)
     

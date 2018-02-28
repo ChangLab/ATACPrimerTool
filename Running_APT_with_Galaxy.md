@@ -14,7 +14,7 @@ Reference genomes should be locally downloaded and referenced in `tool-data`.
 ## Usage 
 
 APT requires ATAC-seq bam files to design optimal ATAC-qPCR primers. Bam files can be downloaded from public repositories such as ENCODE or 
-GEO or user-generated to match your cell type of interest. A list of ATAC-seq datasets from a variety of both human and mouse tissue available 
+GEO or user-generated to match your cell type of interest. A list of ATAC-seq datasets from a variety of both human and mouse tissues available 
 from ENCODE is supplied in the APT manuscript.  
 
 ATAC-seq bam files should be added to the Galaxy history as a dataset collection and the reference genome set for all files. Bam files must be 
