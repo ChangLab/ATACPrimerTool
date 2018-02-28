@@ -5,8 +5,8 @@
 This document describes how to design normalization controls for ATAC-qPCR. We have provided
 a panel of normalization controls based on peaks with low variability in a variety of human and mouse tissues for which ATAC-seq
 data is available in ENCODE. Primers for these universal normalization controls are available in the APT manuscript
-and are a good place to start.  However, this tool can be used to design addtionional normalization controls if these peaks 
-are more variabile in a specific cell type of interest or you would like to use ATAC-qPCR in a species for which normalization
+and are a good place to start.  However, this tool can be used to design additional normalization controls if these peaks 
+are more variable in a specific cell type of interest or you would like to use ATAC-qPCR in a species for which normalization
 controls have not been designed.
 
 ## Rationale for Selection of Normalization Controls
