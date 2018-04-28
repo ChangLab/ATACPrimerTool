@@ -18,7 +18,7 @@ from ENCODE is supplied in the APT manuscript.
 
 ATAC-seq bam files should be added to the Galaxy history as a dataset collection and the reference genome set for all files. Bam files must be 
 from paired-end sequencing and sorted by position. The dataset collection containing bam files should be specified in step 1 of the workflow:
-![alt text](galaxy/galaxy_fig1.jpg "Step 1"){:height="50%" width="50%"}
+![alt text](galaxy/galaxy_fig1.jpg "Step 1")
 
 APT also requires a bed file containing coordinates of ATAC-seq peaks for which primers should be designed. The bed file should have the same 
 specified reference genome as the input bam files and is specified in step 3 of the workflow:
