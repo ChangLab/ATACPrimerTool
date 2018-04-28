@@ -4,10 +4,9 @@
 APT is also available as a Galaxy workflow.  The underlying code is the same as the command line version of APT.
 
 ## Getting Started
-The APT workflow can be added from the Galaxy Test ToolShed using the instructions found [here](https://galaxyproject.org/toolshed/workflow-sharing/).
-The workflow can be downloaded [here](galaxy/Galaxy-Workflow-ATAC_Primer_Tool.ga) or by searching "ATAC Primer Tool" 
-in the workflows section of the Galaxy Test Toolshed Repository. Click on the workflow name and select **Install repository to local 
-Galaxy** from the **Repository Actions** menu to install the workflow and required tools.  
+The APT workflow can be added from the Galaxy ToolShed using the instructions found [here](https://galaxyproject.org/toolshed/workflow-sharing/).
+The repository including tool dependencies and the APT Galaxy Workflow is available in the **Epigenetics** category as
+[atac_primer_tool](https://toolshed.g2.bx.psu.edu/view/kyost/atac_primer_tool/fd3ea97a96bc). 
 
 Reference genomes should be locally downloaded and referenced in `tool-data`.  
 
@@ -22,21 +21,19 @@ from paired-end sequencing and sorted by position. The dataset collection contai
 ![alt text](galaxy/galaxy_fig1.jpg "Step 1")
 
 APT also requires a bed file containing coordinates of ATAC-seq peaks for which primers should be designed. The bed file should have the same 
-specified reference genome as the input bam files and is specified in step 2 of the workflow:
-![alt text](galaxy/galaxy_fig2.jpg "Step 2")
+specified reference genome as the input bam files and is specified in step 3 of the workflow:
+![alt text](galaxy/galaxy_fig2.jpg "Step 3")
 
-By default, the APT workflow uses a genome size file from the Galaxy history. This can be modified to use a locally installed genome file by 
-editing the workflow. Genome size files for some common reference genomes are available in [genomes](genomes/) and should be specified in step
-3 of the workflow:
-![alt text](galaxy/galaxy_fig3.jpg "Step 3")
+The APT workflow requires a genome size file from the Galaxy history.  Genome size files for some common reference genomes are available in [genomes](genomes/) and should be specified in step 2 of the workflow:
+![alt text](galaxy/galaxy_fig3.jpg "Step 2")
 
 ## Optional Arguments
 There are multiple parameters of APT that can be modified, although the default parameters are a good place to start. In practice, we 
 typically try a couple of different correlation cutoffs (i.e. 0.7, 0.8 and 0.9) to narrow down primer design regions if large regions 
 are output using the defaults or to extend primer design regions if primers cannot be designed in the original region.
 
-Window Size - window size in basepairs into which peaks are binned. Default is 100 and can be modified in step 4 of the workflow:
-![alt text](galaxy/galaxy_fig4.jpg "Step 4") 
+Window Size - window size in basepairs into which peaks are binned. Default is 100 and can be modified in step 5 of the workflow:
+![alt text](galaxy/galaxy_fig4.jpg "Step 5") 
 
 Fragment Overlap - percentage by which spanning fragments should overlap window to be counted. Default is 0.9 and can be modified in
 step 7 of the workflow:
