@@ -96,12 +96,13 @@ for bamfile in sorted(os.listdir(args.input)):
             cmd +=  " --shift " + str(param.macs2.shift) + " --nomodel "  
             pm.run(cmd, peak_file)
             
-            #Create merged peak file
-            merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
-            cmd = tools.mergePeaks + " MergePeakID "
-            cmd += os.path.join(Peak_folder, "*_peaks.narrowPeak")
-            cmd += " | cut -f 1,2,3,4 > " + merged_peak_file
-            pm.run(cmd, merged_peak_file)
+if not args.narrowpeak:
+    #Create merged peak file
+    merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
+    cmd = tools.mergePeaks + " MergePeakID "
+    cmd += os.path.join(Peak_folder, "*_peaks.narrowPeak")
+    cmd += " | cut -f 1,2,3,4 > " + merged_peak_file
+    pm.run(cmd, merged_peak_file)
             
 if args.narrowpeak:
     merged_peak_file = os.path.join(param.outfolder, "MergedPeaks.bed")
