@@ -15,7 +15,7 @@ For information on how to run ATAC Primer Tool (APT) from the Galaxy Toolshed, p
 
 ## Installing
 
-APT uses [pypiper](https://github.com/epigen/pypiper)(v0.10.0) to run the pipeline, which can be installed using the following command:
+APT uses [pypiper](https://github.com/epigen/pypiper) (v0.10.0) to run the pipeline, which can be installed using the following command:
 
 ```
 pip install --user https://github.com/databio/pypiper/archive/refs/tags/v0.10.0.tar.gz
@@ -43,7 +43,7 @@ where `path/to/ATACPrimerTool` is the path to the ATACPrimerTool directory.
  
 ## Package dependencies
 
-This pipeline requires the following packages: R, samtools and bedtools (>= version 2.24.0). These packages must be either 
+This pipeline requires the following: Python 2, R, samtools and bedtools (>= version 2.24.0). These packages must be either 
 be in your `$PATH` variable or paths can be hardcoded by editing [ATACPrimerTool.yaml](pipelines/ATACPrimerTool_config.yaml). 
 
 ## Running the pipeline
