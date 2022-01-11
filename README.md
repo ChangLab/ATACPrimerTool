@@ -15,10 +15,10 @@ For information on how to run ATAC Primer Tool (APT) from the Galaxy Toolshed, p
 
 ## Installing
 
-APT uses [pypiper](https://github.com/epigen/pypiper) to run the pipeline, which can be installed using the following command:
+APT uses [pypiper](https://github.com/epigen/pypiper)(v0.10.0) to run the pipeline, which can be installed using the following command:
 
 ```
-pip install --user https://github.com/epigen/pypiper/zipball/master
+pip install --user https://github.com/databio/pypiper/archive/refs/tags/v0.10.0.tar.gz
 ```
 
 Clone the APT repository by running the following command:
